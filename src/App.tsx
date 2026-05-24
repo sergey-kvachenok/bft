@@ -1,38 +1,43 @@
-import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import { SurveillanceBand } from './components/SurveillanceBand';
-import { Header } from './components/Header';
-import { Hero } from './components/sections/Hero';
-import { CamGrid } from './components/CamGrid';
-import { About } from './components/sections/About';
-import { Visit } from './components/sections/Visit';
-import { Footer } from './components/Footer';
-
 export default function App() {
-  const { i18n, t } = useTranslation();
-
-  useEffect(() => {
-    document.documentElement.lang = i18n.resolvedLanguage ?? 'en';
-  }, [i18n.resolvedLanguage]);
-
   return (
-    <>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-[var(--color-signal)] focus:text-[var(--color-paper)] focus:px-3 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.2em]"
-      >
-        {t('a11y.skipToContent')}
-      </a>
+    <main className="relative min-h-[100dvh] flex flex-col bg-[var(--color-ink)] text-[var(--color-paper)] overflow-hidden">
+      <header className="flex items-center justify-between px-4 sm:px-6 lg:px-12 pt-6 sm:pt-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[var(--color-paper-2)]">
+        <span className="flex items-center gap-2">
+          <span
+            aria-hidden
+            className="inline-block w-2 h-2 bg-[var(--color-signal)] rec-dot"
+          />
+          Status: Maintenance
+        </span>
+        <span>Belarus Free Theatre</span>
+      </header>
 
-      <SurveillanceBand />
-      <Header />
-      <main id="main">
-        <Hero />
-        <CamGrid />
-        <About />
-        <Visit />
-      </main>
-      <Footer />
-    </>
+      <section className="relative z-10 flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-12 py-16 mx-auto w-full max-w-6xl">
+        <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[var(--color-paper-2)] mb-6 sm:mb-8">
+          Official. Unofficial. Belarus.
+        </p>
+
+        <h1
+          className="font-display"
+          style={{
+            fontSize: 'var(--text-display-xl)',
+            lineHeight: 0.85,
+            letterSpacing: '-0.01em',
+          }}
+        >
+          Officially
+          <br />
+          <span className="text-[var(--color-signal)]">coming soon</span>
+        </h1>
+
+        <p className="mt-8 sm:mt-10 max-w-xl font-sans text-base sm:text-lg text-[var(--color-paper-2)] leading-relaxed">
+          Something is being prepared here. Check back shortly.
+        </p>
+      </section>
+
+      <footer className="px-4 sm:px-6 lg:px-12 pb-6 sm:pb-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[var(--color-mute)]">
+        © {new Date().getFullYear()} — All rights reserved
+      </footer>
+    </main>
   );
 }
