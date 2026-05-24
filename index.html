@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <!-- TODO: replace with rasterized 180×180 PNG before launch for iOS homescreen -->
+    <link rel="apple-touch-icon" href="/icon.svg" />
+
+    <title>Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale</title>
+    <meta
+      name="description"
+      content="Official. Unofficial. Belarus. — an exhibition by Belarus Free Theatre at La Biennale di Venezia. Mobile-first companion guide."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Official. Unofficial. Belarus." />
+    <meta
+      property="og:description"
+      content="Belarus Free Theatre at the Venice Biennale. An exhibition of resistance, memory, and witness."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Official. Unofficial. Belarus." />
+    <meta
+      name="twitter:description"
+      content="Belarus Free Theatre at the Venice Biennale."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Performance: preconnect to font CDN if used -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD: Event -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExhibitionEvent",
+        "name": "Official. Unofficial. Belarus.",
+        "description": "An exhibition by Belarus Free Theatre at the Venice Biennale.",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Belarus Free Theatre",
+          "url": "https://belarusfreetheatre.com"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "La Biennale di Venezia",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Venezia",
+            "addressCountry": "IT"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

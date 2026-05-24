@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "INFO",
+    "visit": "VISITA"
+  },
+  "surveillance": {
+    "monitored": "MONITORATO",
+    "live": "LIVE",
+    "location": "CCTV · VENEZIA"
+  },
+  "hero": {
+    "kicker": "BFT @ LA BIENNALE DI VENEZIA",
+    "title": "UFFICIALE.\nNON UFFICIALE.\nBIELORUSSIA.",
+    "altBg": "Ingresso della mostra — insegna al neon rossa con la scritta УВАХОД (Ingresso) sopra un arco veneziano, affiancata da telecamere di sorveglianza",
+    "ctaAbout": "LEGGI",
+    "ctaBiennale": "ALLA BIENNALE"
+  },
+  "about": {
+    "eyebrow": "INFO",
+    "title": "BANDITO IN PATRIA.\nIN SCENA A VENEZIA.",
+    "body": "Belarus Free Theatre è l'unico teatro in Europa bandito dal proprio governo per ragioni politiche. Dall'esilio, porta Official. Unofficial. Belarus. alla Biennale di Venezia — un'opera fatta sotto sorveglianza, sulla sorveglianza.",
+    "linkBft": "Belarus Free Theatre",
+    "linkBiennale": "La Biennale di Venezia"
+  },
+  "feeds": {
+    "entrance": "Ingresso della mostra — insegna al neon rossa con la scritta УВАХОД (Ingresso) sopra un arco veneziano, affiancata da telecamere di sorveglianza",
+    "cross": "Una grande scultura a forma di croce composta da piccole schede con ritratti, in uno spazio sacro veneziano",
+    "sphere": "Una scultura sferica composta da piccole schede, in una cappella veneziana",
+    "chapel": "Interno di una cappella con una tenda rossa al centro e due dipinti sulle pareti laterali",
+    "wheat": "Installazione di grano essiccato che copre il pavimento di un magazzino in mattoni, con strutture metalliche geometriche sospese",
+    "wheatWide": "Vista ampia dell'installazione di grano in un magazzino in mattoni con colonne e strutture geometriche sospese"
+  },
+  "visit": {
+    "eyebrow": "VISITA",
+    "title": "TROVA LA PORTA.",
+    "body": "Aperto durante la Biennale di Venezia. Tutte le informazioni — orari, biglietti, mappa ufficiale del padiglione — sono pubblicate dalla Biennale.",
+    "cta": "Visita La Biennale"
+  },
+  "footer": {
+    "title": "BELARUS FREE THEATRE.",
+    "credit": "Belarus Free Theatre"
+  },
+  "a11y": {
+    "skipToContent": "Vai al contenuto",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "switchLanguage": "Cambia lingua",
+    "closeCam": "Chiudi vista telecamera"
+  },
+  "camGrid": {
+    "aria": "Parete multi-vista delle telecamere"
+  }
+}

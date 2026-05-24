@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "ABOUT",
+    "visit": "VISIT"
+  },
+  "surveillance": {
+    "monitored": "MONITORED",
+    "live": "LIVE",
+    "location": "CCTV · VENEZIA"
+  },
+  "hero": {
+    "kicker": "BFT @ LA BIENNALE DI VENEZIA",
+    "title": "OFFICIAL.\nUNOFFICIAL.\nBELARUS.",
+    "altBg": "Entrance to the exhibition — red neon sign reading УВАХОД (Entrance) above a Venetian archway, flanked by surveillance cameras",
+    "ctaAbout": "READ",
+    "ctaBiennale": "AT THE BIENNALE"
+  },
+  "about": {
+    "eyebrow": "ABOUT",
+    "title": "BANNED AT HOME.\nSTAGED IN VENICE.",
+    "body": "Belarus Free Theatre is the only theatre in Europe banned by its own government on political grounds. From exile, they bring Official. Unofficial. Belarus. to La Biennale di Venezia — a work made under surveillance, about surveillance.",
+    "linkBft": "Belarus Free Theatre",
+    "linkBiennale": "La Biennale di Venezia"
+  },
+  "feeds": {
+    "entrance": "Entrance to the exhibition — red neon sign reading УВАХОД (Entrance) above a Venetian archway, flanked by surveillance cameras",
+    "cross": "A large cross sculpture composed of small portrait cards, in a Venetian chapel space",
+    "sphere": "A spherical sculpture composed of small cards, in a Venetian chapel",
+    "chapel": "A chapel interior with a red curtain in the centre and two paintings on the side walls",
+    "wheat": "An installation of dried wheat covering a brick warehouse floor, with suspended geometric metal frames",
+    "wheatWide": "Wide view of the wheat installation in a brick warehouse with columns and suspended geometric frames"
+  },
+  "visit": {
+    "eyebrow": "VISIT",
+    "title": "FIND THE DOOR.",
+    "body": "Open during La Biennale di Venezia. Full visiting information — opening hours, tickets, the official venue map — is published by the Biennale.",
+    "cta": "Visit La Biennale"
+  },
+  "footer": {
+    "title": "BELARUS FREE THEATRE.",
+    "credit": "Belarus Free Theatre"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch language",
+    "closeCam": "Close camera view"
+  },
+  "camGrid": {
+    "aria": "Multi-view camera wall"
+  }
+}
