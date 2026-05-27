@@ -98,8 +98,9 @@
     display: none;
   }
 
-  /* CCTV B&W filter — applied to images/media inside a CamFrame */
-  .cctv-feed,
+  /* CCTV B&W filter — applied only to images/media inside a .cctv-feed
+     wrapper, never the wrapper itself. The wrapper may host overlays
+     (e.g. a red ring or LAST badge) that must keep their colors. */
   .cctv-feed img,
   .cctv-feed video {
     filter: grayscale(1) contrast(1.08) brightness(0.92);
