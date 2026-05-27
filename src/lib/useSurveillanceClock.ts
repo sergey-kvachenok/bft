@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { pad } from './format';
 
 export interface SurveillanceClock {
   /** Current Date — re-renders consumers every second. */
@@ -30,14 +31,12 @@ export function useSurveillanceClock(): SurveillanceClock {
 }
 
 export function formatTimestamp(d: Date): string {
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}`;
+  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1, 2)}-${pad(d.getUTCDate(), 2)} ${pad(d.getUTCHours(), 2)}:${pad(d.getUTCMinutes(), 2)}:${pad(d.getUTCSeconds(), 2)}`;
 }
 
 export function formatRecElapsed(seconds: number): string {
-  const pad = (n: number) => String(n).padStart(2, '0');
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = seconds % 60;
-  return `${pad(h)}:${pad(m)}:${pad(s)}`;
+  return `${pad(h, 2)}:${pad(m, 2)}:${pad(s, 2)}`;
 }

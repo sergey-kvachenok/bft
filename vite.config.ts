@@ -37,8 +37,22 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,jpg,jpeg,webp,woff2}'],
+        // Precache only the app shell + icons. The 55 artwork WebPs are
+        // pulled at runtime so the PWA install stays small on mobile.
+        globPatterns: ['**/*.{js,css,html,svg,woff2}'],
         runtimeCaching: [
+          {
+            urlPattern: /\/images\/artworks\/.*\.webp$/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'artworks-cache',
+              expiration: {
+                maxEntries: 120,
+                maxAgeSeconds: 60 * 60 * 24 * 90,
+              },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'CacheFirst',

@@ -4,6 +4,12 @@ import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { SECTION_IDS, EXTERNAL_LINKS } from '../../lib/constants';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
+import { LINK_BORDERED } from '../../lib/ui';
+
+const LINKS = [
+  { href: EXTERNAL_LINKS.bft, key: 'about.linkBft' },
+  { href: EXTERNAL_LINKS.biennale, key: 'about.linkBiennale' },
+] as const;
 
 export function About() {
   const { t } = useTranslation();
@@ -25,24 +31,18 @@ export function About() {
           {t('about.body')}
         </p>
         <div className="md:col-span-4 md:pt-2 flex flex-col gap-3 self-start font-mono text-xs uppercase tracking-[0.18em]">
-          <a
-            href={EXTERNAL_LINKS.bft}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-b border-[var(--color-rule)] pb-2 text-[var(--color-paper)] hover:text-[var(--color-signal)] hover:border-[var(--color-signal)] transition-colors"
-          >
-            <span>{t('about.linkBft')}</span>
-            <span aria-hidden className="ml-auto">→</span>
-          </a>
-          <a
-            href={EXTERNAL_LINKS.biennale}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-b border-[var(--color-rule)] pb-2 text-[var(--color-paper)] hover:text-[var(--color-signal)] hover:border-[var(--color-signal)] transition-colors"
-          >
-            <span>{t('about.linkBiennale')}</span>
-            <span aria-hidden className="ml-auto">→</span>
-          </a>
+          {LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={LINK_BORDERED}
+            >
+              <span>{t(link.key)}</span>
+              <span aria-hidden className="ml-auto">→</span>
+            </a>
+          ))}
         </div>
       </motion.div>
     </Section>

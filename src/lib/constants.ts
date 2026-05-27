@@ -10,3 +10,8 @@ export const EXTERNAL_LINKS = {
   bft: 'https://belarusfreetheatre.com',
   biennale: 'https://www.labiennale.org',
 } as const;
+
+export const STORAGE_KEYS = {
+  lastViewedArtwork: 'bft.lastViewedArtwork',
+  language: 'bft.lang',
+} as const;

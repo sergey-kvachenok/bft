@@ -6,70 +6,60 @@ import {
   useSurveillanceClock,
 } from '../../lib/useSurveillanceClock';
 import { cn } from '../../lib/cn';
+import { SignalBars } from './SignalBars';
 
 interface CamFrameProps {
   camId: string;
   location?: string;
   children: ReactNode;
   className?: string;
-  bw?: boolean;
   /** Optional auto-progress bar at the bottom of the frame. */
   progress?: { cycleKey: number | string; durationMs: number };
   /**
    * When true, the top chrome (corner brackets, cam id, REC timer) is offset
-   * downward to clear the fixed SurveillanceBand (28px) + Header (48px).
-   * Set this on hero-level instances so the chrome never collides with the
-   * page-level navigation.
+   * downward to clear the fixed SurveillanceBand + Header. Set on hero-level
+   * instances so chrome never collides with page navigation.
    */
   offsetTopForHeader?: boolean;
 }
 
-const corner = 'absolute w-3 h-3 sm:w-4 sm:h-4 border-[var(--color-paper)] z-20';
+const CORNER_BASE =
+  'absolute w-3 h-3 sm:w-4 sm:h-4 border-[var(--color-paper)] z-20';
 
-function CornerBrackets({ topOffset }: { topOffset: string }) {
+const BURN_IN_BASE =
+  'absolute z-20 font-mono uppercase tracking-[0.18em] text-[var(--color-paper)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]';
+const BURN_IN_LABEL_SIZE = 'text-[9px] sm:text-[11px]';
+const BURN_IN_TIMESTAMP_SIZE = 'text-[9px] sm:text-[10px]';
+
+// Cleared by SurveillanceBand (h-7 = 28px) + Header (h-12 = 48px) = 76px.
+const TOP_OFFSET_HERO = 'top-20 sm:top-24';
+const TOP_OFFSET_CORNER = 'top-2 sm:top-3';
+const TOP_OFFSET_LABEL = 'top-3 sm:top-5';
+
+function CornerBrackets({ topClass }: { topClass: string }) {
   return (
     <>
-      <span aria-hidden className={cn(corner, topOffset, 'left-2 sm:left-3 border-l border-t')} />
-      <span aria-hidden className={cn(corner, topOffset, 'right-2 sm:right-3 border-r border-t')} />
-      <span aria-hidden className={cn(corner, 'bottom-2 sm:bottom-3 left-2 sm:left-3 border-l border-b')} />
-      <span aria-hidden className={cn(corner, 'bottom-2 sm:bottom-3 right-2 sm:right-3 border-r border-b')} />
+      <span aria-hidden className={cn(CORNER_BASE, topClass, 'left-2 sm:left-3 border-l border-t')} />
+      <span aria-hidden className={cn(CORNER_BASE, topClass, 'right-2 sm:right-3 border-r border-t')} />
+      <span aria-hidden className={cn(CORNER_BASE, 'bottom-2 sm:bottom-3 left-2 sm:left-3 border-l border-b')} />
+      <span aria-hidden className={cn(CORNER_BASE, 'bottom-2 sm:bottom-3 right-2 sm:right-3 border-r border-b')} />
     </>
   );
 }
-
-function SignalBars() {
-  return (
-    <span aria-hidden className="inline-flex items-end gap-px h-3">
-      {[3, 5, 7, 9, 11].map((h) => (
-        <span
-          key={h}
-          className="w-px bg-[var(--color-paper)]"
-          style={{ height: `${h}px` }}
-        />
-      ))}
-    </span>
-  );
-}
-
-const burnIn =
-  'absolute z-20 font-mono uppercase tracking-[0.18em] text-[var(--color-paper)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]';
-const burnInSize = 'text-[9px] sm:text-[11px]';
 
 export function CamFrame({
   camId,
   location,
   children,
   className,
-  bw = true,
   progress,
   offsetTopForHeader = false,
 }: CamFrameProps) {
   const { now, elapsed } = useSurveillanceClock();
+  const ts = formatTimestamp(now);
 
-  // Clear SurveillanceBand (h-7 = 28px) + Header (h-12 = 48px) = 76px.
-  // top-20 = 80px, top-24 = 96px → safely below.
-  const cornerTop = offsetTopForHeader ? 'top-20 sm:top-24' : 'top-2 sm:top-3';
-  const labelTop = offsetTopForHeader ? 'top-20 sm:top-24' : 'top-3 sm:top-5';
+  const cornerTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_CORNER;
+  const labelTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_LABEL;
 
   return (
     <div
@@ -78,16 +68,14 @@ export function CamFrame({
         className,
       )}
     >
-      <div className={cn('relative z-0 h-full w-full', bw && 'cctv-feed')}>
-        {children}
-      </div>
+      <div className="cctv-feed relative z-0 h-full w-full">{children}</div>
 
-      <CornerBrackets topOffset={cornerTop} />
+      <CornerBrackets topClass={cornerTop} />
 
       <div
         className={cn(
-          burnIn,
-          burnInSize,
+          BURN_IN_BASE,
+          BURN_IN_LABEL_SIZE,
           labelTop,
           'left-3 sm:left-5 flex items-center gap-1.5 sm:gap-2 max-w-[60%]',
         )}
@@ -107,8 +95,8 @@ export function CamFrame({
 
       <div
         className={cn(
-          burnIn,
-          burnInSize,
+          BURN_IN_BASE,
+          BURN_IN_LABEL_SIZE,
           labelTop,
           'right-3 sm:right-5 flex items-center gap-1.5 sm:gap-2 text-[var(--color-signal)]',
         )}
@@ -121,23 +109,23 @@ export function CamFrame({
 
       <div
         className={cn(
-          burnIn,
-          'text-[9px] sm:text-[10px]',
+          BURN_IN_BASE,
+          BURN_IN_TIMESTAMP_SIZE,
           'bottom-3 sm:bottom-5 left-3 sm:left-5 tabular-nums',
         )}
       >
-        <span className="hidden sm:inline">{formatTimestamp(now)}</span>
-        <span className="sm:hidden">{formatTimestamp(now).slice(11)}</span>
+        <span className="hidden sm:inline">{ts}</span>
+        <span className="sm:hidden">{ts.slice(11)}</span>
       </div>
 
       <div
         className={cn(
-          burnIn,
-          'text-[9px] sm:text-[10px]',
+          BURN_IN_BASE,
+          BURN_IN_TIMESTAMP_SIZE,
           'bottom-3 sm:bottom-5 right-3 sm:right-5 flex items-center gap-1.5 sm:gap-2',
         )}
       >
-        <SignalBars />
+        <SignalBars size="md" />
         <span className="hidden sm:inline">SIG</span>
       </div>
 

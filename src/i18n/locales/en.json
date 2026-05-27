@@ -11,7 +11,6 @@
   "hero": {
     "kicker": "BFT @ LA BIENNALE DI VENEZIA",
     "title": "OFFICIAL.\nUNOFFICIAL.\nBELARUS.",
-    "altBg": "Entrance to the exhibition — red neon sign reading УВАХОД (Entrance) above a Venetian archway, flanked by surveillance cameras",
     "ctaAbout": "READ",
     "ctaBiennale": "AT THE BIENNALE"
   },
@@ -23,12 +22,7 @@
     "linkBiennale": "La Biennale di Venezia"
   },
   "feeds": {
-    "entrance": "Entrance to the exhibition — red neon sign reading УВАХОД (Entrance) above a Venetian archway, flanked by surveillance cameras",
-    "cross": "A large cross sculpture composed of small portrait cards, in a Venetian chapel space",
-    "sphere": "A spherical sculpture composed of small cards, in a Venetian chapel",
-    "chapel": "A chapel interior with a red curtain in the centre and two paintings on the side walls",
-    "wheat": "An installation of dried wheat covering a brick warehouse floor, with suspended geometric metal frames",
-    "wheatWide": "Wide view of the wheat installation in a brick warehouse with columns and suspended geometric frames"
+    "artwork": "Photograph from the Official. Unofficial. Belarus. exhibition by Belarus Free Theatre at La Biennale di Venezia"
   },
   "visit": {
     "eyebrow": "VISIT",
@@ -45,9 +39,13 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchLanguage": "Switch language",
-    "closeCam": "Close camera view"
+    "closeCam": "Close camera view",
+    "prevCam": "Previous camera",
+    "nextCam": "Next camera"
   },
   "camGrid": {
-    "aria": "Multi-view camera wall"
+    "aria": "Multi-view camera wall",
+    "last": "Last",
+    "resume": "Last viewed — tap to resume"
   }
 }

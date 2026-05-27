@@ -1,5 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { EXTERNAL_LINKS } from '../lib/constants';
+import { LINK_INLINE } from '../lib/ui';
+
+const LINKS = [
+  { href: EXTERNAL_LINKS.bft, label: 'belarusfreetheatre.com →' },
+  { href: EXTERNAL_LINKS.biennale, label: 'labiennale.org →' },
+] as const;
 
 export function Footer() {
   const { t } = useTranslation();
@@ -16,22 +22,17 @@ export function Footer() {
             {t('footer.title')}
           </p>
           <div className="md:col-span-5 flex flex-col gap-3 font-mono text-xs uppercase tracking-[0.2em]">
-            <a
-              href={EXTERNAL_LINKS.bft}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-paper)] hover:text-[var(--color-signal)] transition-colors"
-            >
-              belarusfreetheatre.com →
-            </a>
-            <a
-              href={EXTERNAL_LINKS.biennale}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-paper)] hover:text-[var(--color-signal)] transition-colors"
-            >
-              labiennale.org →
-            </a>
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={LINK_INLINE}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
         <p className="mt-12 pt-6 border-t border-[var(--color-rule)] font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-mute)]">

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { CamFeedSlider } from '../CamFeedSlider';
+import { CtaButton } from '../ui/CtaButton';
 import { SECTION_IDS, EXTERNAL_LINKS } from '../../lib/constants';
 import { EASE_EDITORIAL } from '../../lib/motion';
 
@@ -50,35 +51,13 @@ export function Hero() {
           transition={{ duration: 0.7, ease: EASE_EDITORIAL, delay: 0.7 }}
           className="flex flex-wrap items-center gap-2.5 sm:gap-3 pointer-events-auto"
         >
-          <a
-            href={`#${SECTION_IDS.about}`}
-            className="
-              inline-flex items-center justify-center
-              bg-[var(--color-signal)] text-[var(--color-paper)]
-              px-5 sm:px-7 py-3 sm:py-4
-              font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium
-              hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]
-              transition-colors
-            "
-          >
+          <CtaButton href={`#${SECTION_IDS.about}`}>
             {t('hero.ctaAbout')}
-          </a>
-          <a
-            href={EXTERNAL_LINKS.biennale}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex items-center justify-center gap-2
-              border border-[var(--color-paper)] text-[var(--color-paper)]
-              px-5 sm:px-7 py-3 sm:py-4
-              font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium
-              hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]
-              transition-colors
-            "
-          >
+          </CtaButton>
+          <CtaButton href={EXTERNAL_LINKS.biennale} variant="outlined" external>
             {t('hero.ctaBiennale')}
             <span aria-hidden>→</span>
-          </a>
+          </CtaButton>
         </motion.div>
       </div>
     </section>

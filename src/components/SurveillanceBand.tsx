@@ -3,24 +3,8 @@ import {
   formatTimestamp,
   useSurveillanceClock,
 } from '../lib/useSurveillanceClock';
-import {
-  CAM_COUNT_LABEL,
-  CAM_COUNT_TOTAL,
-} from '../lib/feeds';
-
-function SignalBars() {
-  return (
-    <span aria-hidden className="inline-flex items-end gap-px h-2.5">
-      {[2, 4, 6, 8, 10].map((h) => (
-        <span
-          key={h}
-          className="w-px bg-[var(--color-paper)]"
-          style={{ height: `${h}px` }}
-        />
-      ))}
-    </span>
-  );
-}
+import { CAM_COUNT_LABEL, CAM_COUNT_TOTAL } from '../lib/artworks';
+import { SignalBars } from './ui/SignalBars';
 
 export function SurveillanceBand() {
   const { t } = useTranslation();
@@ -63,7 +47,7 @@ export function SurveillanceBand() {
         </span>
 
         <span className="ml-auto flex items-center gap-2 sm:gap-3 shrink-0">
-          <span className="hidden md:inline-flex"><SignalBars /></span>
+          <SignalBars size="sm" className="hidden md:inline-flex" />
           <span className="text-[var(--color-paper)] tabular-nums">
             <span className="sm:hidden">{ts.slice(11)}</span>
             <span className="hidden sm:inline">{ts}</span>

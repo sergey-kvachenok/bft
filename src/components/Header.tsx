@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { SECTION_IDS } from '../lib/constants';
 import { cn } from '../lib/cn';
+import { LINK_INLINE } from '../lib/ui';
 
 const NAV_ITEMS = [
   { id: SECTION_IDS.about, key: 'nav.about' },
@@ -48,7 +49,7 @@ export function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-[var(--color-paper)] hover:text-[var(--color-signal)] transition-colors"
+              className={LINK_INLINE}
             >
               {t(item.key)}
             </a>

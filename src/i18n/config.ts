@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './locales/en.json';
 import it from './locales/it.json';
 import be from './locales/be.json';
+import { STORAGE_KEYS } from '../lib/constants';
 
 export const SUPPORTED_LANGUAGES = ['en', 'it', 'be'] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
@@ -31,7 +32,7 @@ void i18n
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
-      lookupLocalStorage: 'bft_lang',
+      lookupLocalStorage: STORAGE_KEYS.language,
     },
   });
 
