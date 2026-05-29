@@ -1,5 +1,6 @@
 {
   "nav": {
+    "primary": "Principale",
     "about": "INFO",
     "participants": "PARTECIPANTI",
     "works": "OPERE",
@@ -86,7 +87,9 @@
     "switchLanguage": "Cambia lingua",
     "closeCam": "Chiudi vista telecamera",
     "prevCam": "Telecamera precedente",
-    "nextCam": "Telecamera successiva"
+    "nextCam": "Telecamera successiva",
+    "pauseFeed": "Metti in pausa il feed",
+    "playFeed": "Riproduci il feed"
   },
   "camGrid": {
     "aria": "Parete multi-vista delle telecamere",

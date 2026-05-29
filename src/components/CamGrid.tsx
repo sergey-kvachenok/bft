@@ -95,8 +95,8 @@ export function CamGrid() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
 
-                  {/* mini burn-in: rec dot + cam id */}
                   <span
+                    aria-hidden="true"
                     className="
                       absolute top-1 left-1 z-10
                       flex items-center gap-1
@@ -105,10 +105,7 @@ export function CamGrid() {
                       drop-shadow-[0_1px_2px_rgba(0,0,0,1)]
                     "
                   >
-                    <span
-                      aria-hidden
-                      className="rec-dot inline-block w-1 h-1 bg-[var(--color-signal)]"
-                    />
+                    <span className="rec-dot inline-block w-1 h-1 bg-[var(--color-signal)]" />
                     <span>{artwork.camId}</span>
                   </span>
 

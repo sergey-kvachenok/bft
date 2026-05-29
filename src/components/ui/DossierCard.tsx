@@ -69,6 +69,7 @@ export function DossierCard({
 
         {photo?.credit && (
           <span
+            aria-hidden="true"
             className="
               absolute bottom-2 right-2 z-10
               font-mono text-[9px] uppercase tracking-[0.18em]

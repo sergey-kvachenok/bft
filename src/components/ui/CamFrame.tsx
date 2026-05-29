@@ -73,6 +73,7 @@ export function CamFrame({
       <CornerBrackets topClass={cornerTop} />
 
       <div
+        aria-hidden="true"
         className={cn(
           BURN_IN_BASE,
           BURN_IN_LABEL_SIZE,
@@ -80,10 +81,7 @@ export function CamFrame({
           'left-3 sm:left-5 flex items-center gap-1.5 sm:gap-2 max-w-[60%]',
         )}
       >
-        <span
-          aria-hidden
-          className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[var(--color-signal)] rec-dot shrink-0"
-        />
+        <span className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[var(--color-signal)] rec-dot shrink-0" />
         <span className="font-medium">{camId}</span>
         {location && (
           <>
@@ -94,6 +92,7 @@ export function CamFrame({
       </div>
 
       <div
+        aria-hidden="true"
         className={cn(
           BURN_IN_BASE,
           BURN_IN_LABEL_SIZE,
@@ -108,6 +107,7 @@ export function CamFrame({
       </div>
 
       <div
+        aria-hidden="true"
         className={cn(
           BURN_IN_BASE,
           BURN_IN_TIMESTAMP_SIZE,
@@ -119,6 +119,7 @@ export function CamFrame({
       </div>
 
       <div
+        aria-hidden="true"
         className={cn(
           BURN_IN_BASE,
           BURN_IN_TIMESTAMP_SIZE,

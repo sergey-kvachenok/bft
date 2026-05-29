@@ -32,7 +32,7 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
               onClick={() => void i18n.changeLanguage(lng)}
               aria-pressed={isActive}
               className={cn(
-                'px-1.5 py-1 transition-colors',
+                'inline-flex items-center justify-center min-w-7 min-h-7 px-2 py-1.5 transition-colors',
                 isActive
                   ? 'text-[var(--color-signal)]'
                   : 'text-[var(--color-mute)] hover:text-[var(--color-paper)]',

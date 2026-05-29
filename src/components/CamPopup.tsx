@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { CamFrame } from './ui/CamFrame';
 import { type Artwork } from '../lib/artworks';
 import { EASE_EDITORIAL } from '../lib/motion';
+import { Key } from '../lib/keys';
+
+const FOCUSABLE_SELECTOR =
+  'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
 
 interface CamPopupProps {
   artworks: readonly Artwork[];
@@ -53,15 +57,52 @@ export function CamPopup({
   const open = index !== null;
   const artwork = open ? artworks[index] : null;
   const total = artworks.length;
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const go = (delta: number) =>
     open && onIndexChange(step(index, delta, total));
+
+  // Capture opener on transition into open; restore on close. Kept separate
+  // from the keydown effect so navigation steps don't re-capture mid-cycle.
+  useEffect(() => {
+    if (!open) return;
+    openerRef.current = document.activeElement as HTMLElement | null;
+    return () => {
+      openerRef.current?.focus({ preventScroll: true });
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      else if (e.key === 'ArrowLeft') onIndexChange(step(index, -1, total));
-      else if (e.key === 'ArrowRight') onIndexChange(step(index, +1, total));
+      if (e.key === Key.Escape) {
+        onClose();
+        return;
+      }
+      if (e.key === Key.ArrowLeft) {
+        onIndexChange(step(index, -1, total));
+        return;
+      }
+      if (e.key === Key.ArrowRight) {
+        onIndexChange(step(index, +1, total));
+        return;
+      }
+      if (e.key === Key.Tab && dialogRef.current) {
+        const focusables = Array.from(
+          dialogRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || !dialogRef.current.contains(active))) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener('keydown', onKey);
     const prevOverflow = document.body.style.overflow;
@@ -76,6 +117,7 @@ export function CamPopup({
     <AnimatePresence>
       {artwork && (
         <motion.div
+          ref={dialogRef}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

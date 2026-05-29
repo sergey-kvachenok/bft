@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { Section } from '../ui/Section';
-import { SectionHeader } from '../ui/SectionHeader';
 import { SECTION_IDS, EXTERNAL_LINKS } from '../../lib/constants';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
 import { LINK_BORDERED } from '../../lib/ui';
@@ -15,13 +14,13 @@ export function About() {
   const { t } = useTranslation();
 
   return (
-    <Section id={SECTION_IDS.about} tone="ink">
-      <SectionHeader
-        eyebrow={t('about.eyebrow')}
-        title={t('about.title')}
-        size="lg"
-      />
-
+    <Section
+      id={SECTION_IDS.about}
+      tone="ink"
+      eyebrow={t('about.eyebrow')}
+      title={t('about.title')}
+      headerSize="lg"
+    >
       <motion.div
         {...whileInViewProps}
         variants={fadeUp}

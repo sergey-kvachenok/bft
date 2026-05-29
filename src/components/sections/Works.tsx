@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { Section } from '../ui/Section';
-import { SectionHeader } from '../ui/SectionHeader';
 import { DossierCard } from '../ui/DossierCard';
 import { SECTION_IDS } from '../../lib/constants';
 import { WORKS } from '../../lib/worksList';
@@ -16,13 +15,13 @@ export function Works() {
   const { t } = useTranslation();
 
   return (
-    <Section id={SECTION_IDS.works} tone="ink">
-      <SectionHeader
-        eyebrow={t('works.eyebrow')}
-        title={t('works.title')}
-        size="lg"
-      />
-
+    <Section
+      id={SECTION_IDS.works}
+      tone="ink"
+      eyebrow={t('works.eyebrow')}
+      title={t('works.title')}
+      headerSize="lg"
+    >
       <motion.p
         {...whileInViewProps}
         variants={fadeUp}

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { Section } from '../ui/Section';
-import { SectionHeader } from '../ui/SectionHeader';
 import { CtaButton } from '../ui/CtaButton';
 import { EXTERNAL_LINKS, SECTION_IDS } from '../../lib/constants';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
@@ -10,9 +9,12 @@ export function Visit() {
   const { t } = useTranslation();
 
   return (
-    <Section id={SECTION_IDS.visit} tone="ink">
-      <SectionHeader eyebrow={t('visit.eyebrow')} title={t('visit.title')} />
-
+    <Section
+      id={SECTION_IDS.visit}
+      tone="ink"
+      eyebrow={t('visit.eyebrow')}
+      title={t('visit.title')}
+    >
       <motion.div
         {...whileInViewProps}
         variants={fadeUp}

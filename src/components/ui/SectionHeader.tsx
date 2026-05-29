@@ -3,6 +3,7 @@ import { fadeUp, whileInViewProps } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
 interface SectionHeaderProps {
+  titleId?: string;
   eyebrow: string;
   title: string;
   className?: string;
@@ -11,6 +12,7 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader({
+  titleId,
   eyebrow,
   title,
   className,
@@ -34,6 +36,7 @@ export function SectionHeader({
         — {eyebrow}
       </p>
       <h2
+        id={titleId}
         className="font-display whitespace-pre-line"
         style={{ fontSize: `var(--${titleSize})`, lineHeight: 0.9 }}
       >

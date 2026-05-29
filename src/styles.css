@@ -7,7 +7,7 @@
   --color-ink-3: #1a1a1a;
   --color-paper: #f2efe6;
   --color-paper-2: #d9d6cc;
-  --color-mute: #6b6b66;
+  --color-mute: #8a8a85;
   --color-rule: #2a2a2a;
   --color-signal: #e11515;
   --color-signal-2: #a30c0c;
@@ -85,6 +85,18 @@
   :focus-visible {
     outline: 2px solid var(--color-signal);
     outline-offset: 3px;
+  }
+
+  /* Hash-link target must clear the fixed band + header. */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  @media (prefers-contrast: more) {
+    :root {
+      --color-mute: #c8c8c2;
+      --color-rule: #6b6b66;
+    }
   }
 }
 

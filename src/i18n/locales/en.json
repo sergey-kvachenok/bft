@@ -1,5 +1,6 @@
 {
   "nav": {
+    "primary": "Primary",
     "about": "ABOUT",
     "participants": "PARTICIPANTS",
     "works": "WORKS",
@@ -86,7 +87,9 @@
     "switchLanguage": "Switch language",
     "closeCam": "Close camera view",
     "prevCam": "Previous camera",
-    "nextCam": "Next camera"
+    "nextCam": "Next camera",
+    "pauseFeed": "Pause camera feed",
+    "playFeed": "Play camera feed"
   },
   "camGrid": {
     "aria": "Multi-view camera wall",

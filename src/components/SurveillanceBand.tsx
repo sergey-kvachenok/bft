@@ -13,8 +13,7 @@ export function SurveillanceBand() {
 
   return (
     <div
-      role="status"
-      aria-live="off"
+      aria-hidden="true"
       className="
         fixed top-0 inset-x-0 z-[60]
         h-7 flex items-center

@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { SECTION_IDS } from '../lib/constants';
 import { cn } from '../lib/cn';
 import { LINK_INLINE } from '../lib/ui';
+import { Key } from '../lib/keys';
 
 const NAV_ITEMS = [
   { id: SECTION_IDS.about, key: 'nav.about' },
@@ -13,10 +14,13 @@ const NAV_ITEMS = [
   { id: SECTION_IDS.visit, key: 'nav.visit' },
 ] as const;
 
+const MOBILE_NAV_ID = 'mobile-nav';
+
 export function Header() {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -24,6 +28,18 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === Key.Escape) {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
 
   const handleNavClick = () => setOpen(false);
 
@@ -46,7 +62,10 @@ export function Header() {
           BFT<span className="text-[var(--color-signal)]">.</span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-7 font-mono text-[11px] uppercase tracking-[0.2em]">
+        <nav
+          aria-label={t('nav.primary')}
+          className="hidden md:flex items-center gap-7 font-mono text-[11px] uppercase tracking-[0.2em]"
+        >
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -63,9 +82,12 @@ export function Header() {
         <div className="md:hidden flex items-center gap-2">
           <LanguageSwitcher />
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
+            aria-controls={MOBILE_NAV_ID}
+            aria-haspopup="menu"
             aria-label={open ? t('a11y.closeMenu') : t('a11y.openMenu')}
             className="p-2 -mr-2 text-[var(--color-paper)]"
           >
@@ -84,13 +106,17 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id={MOBILE_NAV_ID}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
             className="md:hidden bg-[var(--color-ink)] border-t border-[var(--color-rule)] overflow-hidden"
           >
-            <nav className="px-4 sm:px-6 py-6 flex flex-col gap-5 font-display text-3xl">
+            <nav
+              aria-label={t('nav.primary')}
+              className="px-4 sm:px-6 py-6 flex flex-col gap-5 font-display text-3xl"
+            >
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.id}
