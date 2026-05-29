@@ -75,7 +75,9 @@
   },
   "footer": {
     "title": "BELARUS FREE THEATRE.",
-    "credit": "Belarus Free Theatre"
+    "credit": "Belarus Free Theatre",
+    "downloadPressRelease": "Спампаваць прэс-рэліз",
+    "downloadPressReleaseAria": "Спампаваць прэс-рэліз (DOCX, 172 КБ)"
   },
   "a11y": {
     "skipToContent": "Перайсці да зместу",

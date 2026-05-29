@@ -13,6 +13,11 @@ export const EXTERNAL_LINKS = {
   biennale: 'https://www.labiennale.org',
 } as const;
 
+export const ASSETS = {
+  pressRelease: '/press-release.docx',
+  pressReleaseFilename: 'Press Release ENG_Official. Unofficial. Belarus.docx',
+} as const;
+
 export const STORAGE_KEYS = {
   lastViewedArtwork: 'bft.lastViewedArtwork',
   language: 'bft.lang',

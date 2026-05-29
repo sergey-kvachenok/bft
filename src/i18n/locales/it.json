@@ -75,7 +75,9 @@
   },
   "footer": {
     "title": "BELARUS FREE THEATRE.",
-    "credit": "Belarus Free Theatre"
+    "credit": "Belarus Free Theatre",
+    "downloadPressRelease": "Scarica il comunicato stampa",
+    "downloadPressReleaseAria": "Scarica il comunicato stampa (DOCX, 172 KB)"
   },
   "a11y": {
     "skipToContent": "Vai al contenuto",

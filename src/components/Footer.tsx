@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { EXTERNAL_LINKS } from '../lib/constants';
+import { ASSETS, EXTERNAL_LINKS } from '../lib/constants';
 import { LINK_INLINE } from '../lib/ui';
 
 const LINKS = [
-  { href: EXTERNAL_LINKS.bft, label: 'belarusfreetheatre.com →' },
-  { href: EXTERNAL_LINKS.biennale, label: 'labiennale.org →' },
+  { href: EXTERNAL_LINKS.bft, label: 'belarusfreetheatre.com' },
+  { href: EXTERNAL_LINKS.biennale, label: 'labiennale.org' },
 ] as const;
+
+const ARROW = ' →';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -31,8 +33,18 @@ export function Footer() {
                 className={LINK_INLINE}
               >
                 {link.label}
+                {ARROW}
               </a>
             ))}
+            <a
+              href={ASSETS.pressRelease}
+              download={ASSETS.pressReleaseFilename}
+              aria-label={t('footer.downloadPressReleaseAria')}
+              className={LINK_INLINE}
+            >
+              {t('footer.downloadPressRelease')}
+              {ARROW}
+            </a>
           </div>
         </div>
         <p className="mt-12 pt-6 border-t border-[var(--color-rule)] font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-mute)]">
