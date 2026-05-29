@@ -20,6 +20,8 @@ const SETS = [
   { dir: 'artworks',     fullWidth: 1600, fullQuality: 78, thumbWidth: 400, thumbQuality: 75 },
   // Participants: shown only at full size; no thumb consumer in the UI.
   { dir: 'participants', fullWidth: 1200, fullQuality: 82, thumbWidth: 0,   thumbQuality: 0  },
+  // Works: catalogue tiles in the Works section; rendered up to ~500px wide.
+  { dir: 'works',        fullWidth: 1000, fullQuality: 80, thumbWidth: 0,   thumbQuality: 0  },
 ];
 
 const force = process.argv.includes('--force');

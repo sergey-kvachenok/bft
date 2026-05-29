@@ -6,6 +6,7 @@ import { Hero } from './components/sections/Hero';
 import { CamGrid } from './components/CamGrid';
 import { About } from './components/sections/About';
 import { Participants } from './components/sections/Participants';
+import { Works } from './components/sections/Works';
 import { Visit } from './components/sections/Visit';
 import { Footer } from './components/Footer';
 
@@ -32,6 +33,7 @@ export default function App() {
         <CamGrid />
         <About />
         <Participants />
+        <Works />
         <Visit />
       </main>
       <Footer />

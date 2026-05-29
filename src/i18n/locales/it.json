@@ -2,6 +2,7 @@
   "nav": {
     "about": "INFO",
     "participants": "PARTECIPANTI",
+    "works": "OPERE",
     "visit": "VISITA"
   },
   "surveillance": {
@@ -60,6 +61,11 @@
         "body": "Pittore, artista performativo e attivista Bielorusso, ricordato come una delle figure più coraggiose del movimento non ufficiale. Perseguitato per tutta la vita dal regime di Lukašėnka, incarcerato più volte, morì in custodia nel 2023. A Venezia viene esposta una sola opera — Saying Goodbye to Motherland, trafugata clandestinamente fuori dalla Bielorussia — un addio personale e un'elegia collettiva per un Paese tenuto prigioniero dalla dittatura."
       }
     }
+  },
+  "works": {
+    "eyebrow": "OPERE",
+    "title": "DICIOTTO OPERE.\nUNA MOSTRA.",
+    "intro": "Pittura, scultura, suono, profumo, gusto. Diciotto opere realizzate nel 2026 per la mostra alla Chiesa di San Giovanni Evangelista — dal 9 maggio al 22 novembre."
   },
   "visit": {
     "eyebrow": "VISITA",

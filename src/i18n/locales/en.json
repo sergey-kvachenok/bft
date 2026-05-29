@@ -2,6 +2,7 @@
   "nav": {
     "about": "ABOUT",
     "participants": "PARTICIPANTS",
+    "works": "WORKS",
     "visit": "VISIT"
   },
   "surveillance": {
@@ -60,6 +61,11 @@
         "body": "Belarusian painter, performance artist, and activist, remembered as one of the most courageous figures of the country's unofficial movement. Persecuted throughout his life by the Lukashenka regime, imprisoned repeatedly, he died in custody in 2023. A single work is shown in Venice — Saying Goodbye to Motherland, smuggled clandestinely out of Belarus — a personal farewell and a collective elegy for a country held captive by dictatorship."
       }
     }
+  },
+  "works": {
+    "eyebrow": "WORKS",
+    "title": "EIGHTEEN WORKS.\nONE EXHIBITION.",
+    "intro": "Paintings, sculpture, sound, scent, taste. Eighteen works made in 2026 for the show at La Chiesa di San Giovanni Evangelista — 9 May to 22 November."
   },
   "visit": {
     "eyebrow": "VISIT",
