@@ -1,90 +1,106 @@
 #!/usr/bin/env node
 /**
- * Converts every JPG in /public/images/artworks/ to two WebP variants:
- *   <name>.webp       — 1600w, q78  (hero slider + CamPopup)
- *   <name>-thumb.webp — 400w,  q75  (CamGrid 100x100 tiles)
+ * Converts every JPG under /public/images/<set>/ into WebP:
+ *   <name>.webp       — full-width WebP  (hero slider, popup, portrait card)
+ *   <name>-thumb.webp — thumb WebP       (grid tiles; set thumbWidth=0 to skip)
  *
- * Skips files that already have an up-to-date WebP. Run with --force to
- * re-process. JPG originals are left in place; delete separately.
+ * Sets are configured below. Skips files that already have an up-to-date
+ * WebP; pass --force to re-process. JPG originals stay in place.
  */
 import sharp from 'sharp';
-import { readdir, stat, mkdir } from 'node:fs/promises';
+import { readdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, parse } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const SRC_DIR = join(__dirname, '..', 'public', 'images', 'artworks');
+const IMAGES_ROOT = join(__dirname, '..', 'public', 'images');
 
-const FULL_WIDTH = 1600;
-const FULL_QUALITY = 78;
-const THUMB_WIDTH = 400;
-const THUMB_QUALITY = 75;
+const SETS = [
+  { dir: 'artworks',     fullWidth: 1600, fullQuality: 78, thumbWidth: 400, thumbQuality: 75 },
+  // Participants: shown only at full size; no thumb consumer in the UI.
+  { dir: 'participants', fullWidth: 1200, fullQuality: 82, thumbWidth: 0,   thumbQuality: 0  },
+];
 
 const force = process.argv.includes('--force');
+const kb = (n) => `${(n / 1024).toFixed(0)}KB`;
+const mb = (n) => `${(n / 1024 / 1024).toFixed(1)}MB`;
 
-const files = (await readdir(SRC_DIR))
-  .filter((f) => /\.jpe?g$/i.test(f))
-  .sort();
+let grandIn = 0;
+let grandOut = 0;
 
-if (!existsSync(SRC_DIR)) {
-  console.error(`Source dir not found: ${SRC_DIR}`);
-  process.exit(1);
-}
-
-console.log(`Found ${files.length} JPG(s) in ${SRC_DIR}\n`);
-
-let totalIn = 0;
-let totalOut = 0;
-let processed = 0;
-let skipped = 0;
-
-for (const file of files) {
-  const { name } = parse(file);
-  // sanitize: strip spaces/parens for cleaner URLs
-  const safeName = name.replace(/[^a-zA-Z0-9_-]/g, '_');
-  const srcPath = join(SRC_DIR, file);
-  const fullOut = join(SRC_DIR, `${safeName}.webp`);
-  const thumbOut = join(SRC_DIR, `${safeName}-thumb.webp`);
-
-  const srcStat = await stat(srcPath);
-  totalIn += srcStat.size;
-
-  if (!force && existsSync(fullOut) && existsSync(thumbOut)) {
-    const fullStat = await stat(fullOut);
-    const thumbStat = await stat(thumbOut);
-    totalOut += fullStat.size + thumbStat.size;
-    skipped++;
+for (const set of SETS) {
+  const srcDir = join(IMAGES_ROOT, set.dir);
+  if (!existsSync(srcDir)) {
+    console.warn(`Skipping ${set.dir} — directory not found.`);
     continue;
   }
 
-  await sharp(srcPath)
-    .rotate()
-    .resize({ width: FULL_WIDTH, withoutEnlargement: true })
-    .webp({ quality: FULL_QUALITY, effort: 5 })
-    .toFile(fullOut);
+  const files = (await readdir(srcDir))
+    .filter((f) => /\.jpe?g$/i.test(f))
+    .sort();
 
-  await sharp(srcPath)
-    .rotate()
-    .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
-    .webp({ quality: THUMB_QUALITY, effort: 5 })
-    .toFile(thumbOut);
+  console.log(`\n[${set.dir}] Found ${files.length} JPG(s) in ${srcDir}`);
 
-  const fullStat = await stat(fullOut);
-  const thumbStat = await stat(thumbOut);
-  totalOut += fullStat.size + thumbStat.size;
-  processed++;
+  let processed = 0;
+  let skipped = 0;
+  let totalIn = 0;
+  let totalOut = 0;
 
-  const kb = (n) => `${(n / 1024).toFixed(0)}KB`;
+  const wantThumb = set.thumbWidth > 0;
+
+  for (const file of files) {
+    const { name } = parse(file);
+    const safeName = name.replace(/[^a-zA-Z0-9_-]/g, '_');
+    const srcPath = join(srcDir, file);
+    const fullOut = join(srcDir, `${safeName}.webp`);
+    const thumbOut = join(srcDir, `${safeName}-thumb.webp`);
+
+    const srcStat = await stat(srcPath);
+    totalIn += srcStat.size;
+
+    const upToDate = existsSync(fullOut) && (!wantThumb || existsSync(thumbOut));
+    if (!force && upToDate) {
+      totalOut += (await stat(fullOut)).size;
+      if (wantThumb) totalOut += (await stat(thumbOut)).size;
+      skipped++;
+      continue;
+    }
+
+    await sharp(srcPath)
+      .rotate()
+      .resize({ width: set.fullWidth, withoutEnlargement: true })
+      .webp({ quality: set.fullQuality, effort: 5 })
+      .toFile(fullOut);
+
+    let thumbSize = 0;
+    if (wantThumb) {
+      await sharp(srcPath)
+        .rotate()
+        .resize({ width: set.thumbWidth, withoutEnlargement: true })
+        .webp({ quality: set.thumbQuality, effort: 5 })
+        .toFile(thumbOut);
+      thumbSize = (await stat(thumbOut)).size;
+    }
+
+    const fullSize = (await stat(fullOut)).size;
+    totalOut += fullSize + thumbSize;
+    processed++;
+
+    console.log(
+      wantThumb
+        ? `  ${file}  →  ${safeName}.webp (${kb(fullSize)}) + ${safeName}-thumb.webp (${kb(thumbSize)})`
+        : `  ${file}  →  ${safeName}.webp (${kb(fullSize)})`,
+    );
+  }
+
   console.log(
-    `  ${file}  →  ${safeName}.webp (${kb(fullStat.size)}) + ${safeName}-thumb.webp (${kb(thumbStat.size)})`,
+    `[${set.dir}] Processed ${processed}, skipped ${skipped}. ${mb(totalIn)} → ${mb(totalOut)}`,
   );
+  grandIn += totalIn;
+  grandOut += totalOut;
 }
 
-const mb = (n) => `${(n / 1024 / 1024).toFixed(1)}MB`;
 console.log(
-  `\nDone. Processed ${processed}, skipped ${skipped}. Input ${mb(totalIn)} → Output ${mb(totalOut)} (${(
-    (totalOut / totalIn) *
-    100
-  ).toFixed(1)}%)`,
+  `\nTotal: ${mb(grandIn)} → ${mb(grandOut)} (${((grandOut / grandIn) * 100).toFixed(1)}%)`,
 );

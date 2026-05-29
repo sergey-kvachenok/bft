@@ -1,6 +1,7 @@
 {
   "nav": {
     "about": "INFO",
+    "participants": "PARTECIPANTI",
     "visit": "VISITA"
   },
   "surveillance": {
@@ -23,6 +24,42 @@
   },
   "feeds": {
     "artwork": "Fotografia della mostra Official. Unofficial. Belarus. di Belarus Free Theatre alla Biennale di Venezia"
+  },
+  "participants": {
+    "eyebrow": "PARTECIPANTI",
+    "title": "SETTE VOCI.\nUN PAESE.",
+    "intro": "Curatrice, pittori, compositrice, drammaturgo, chef. Artisti che continuano a lavorare — in esilio, in carcere, nel silenzio — per raccontare la Bielorussia com'è, non come la immagina lo Stato.",
+    "noPortrait": "NESSUN RITRATTO — MORTO IN CUSTODIA, 2023",
+    "bios": {
+      "daniella-kaliada": {
+        "role": "Curatrice",
+        "body": "Curatrice della mostra Bielorussa guidata dagli artisti alla 61ª Biennale di Venezia. Nata a Minsk, esiliata in Inghilterra a dieci anni, collabora con Belarus Free Theatre da oltre quindici anni a produzioni tra cui King Stakh's Wild Hunt, candidato agli Olivier Award, e il pluripremiato Dogs of Europe. La sua ricerca indipendente, tra cui Surveillance Crucifixion, esplora memoria, esilio e la rivendicazione di narrazioni represse. Ha studiato all'UCL e al Courtauld Institute of Art, specializzandosi in Concettualismo Globale."
+      },
+      "nicolai-khalezin": {
+        "role": "Drammaturgo · Curatore",
+        "body": "Drammaturgo, curatore e stratega culturale Bielorusso, il cui lavoro si colloca all'intersezione tra arte, politica e resistenza civile. Fondatore dell'unica galleria d'arte indipendente nella Minsk degli anni Novanta — chiusa forzatamente dal regime — ha co-fondato Belarus Free Theatre nel 2005, mettendo in scena spettacoli in appartamenti, magazzini e radure boschive sotto la minaccia di arresto. Ora in esilio, continua a dirigere la compagnia a livello internazionale, mantenendola ancorata al pubblico in Bielorussia."
+      },
+      "sergey-grinevich": {
+        "role": "Pittore",
+        "body": "Pittore e una delle voci più importanti del movimento artistico non ufficiale Bielorusso. Diplomato all'Accademia Statale di Belle Arti della Bielorussia (1983), da oltre quattro decenni lavora tra tradizione figurativa e sperimentazione contemporanea, con figure monumentali segnate da ironia, gioco e critica politica. Le sue opere sono state esposte ad Art Riga, Erarta, Art Southampton, Art Zurich e Art Vilnius, e fanno parte delle collezioni del Ludwig Museum e della Galleria Tret'jakov."
+      },
+      "vladimir-tsesler": {
+        "role": "Artista Concettuale",
+        "body": "Una delle figure più intransigenti dell'arte Bielorussa, fonde rigore concettuale, acume politico e ironia tagliente tra grafica, scultura e installazione. Con Sergei Voichenko ha fondato il leggendario duo Tsesler & Voichenko dell'epoca della Perestrojka, definendo il linguaggio visivo del dissenso tardo-sovietico. Le sue sculture più recenti funzionano come monumenti silenziosi ed etici alla resistenza — rivendicando ambiguità, memoria e pensiero critico in contesti progettati per eliminare tutte e tre queste dimensioni."
+      },
+      "volha-podgaiskaya": {
+        "role": "Compositrice · Organista",
+        "body": "Compositrice e organista che mette in dialogo le tradizioni sacre con la sperimentazione contemporanea. Formatasi all'Accademia Statale di Musica della Bielorussia e alla Haute École de Musique di Ginevra, accosta sonorità liturgiche a forme sperimentali. Per Venezia realizza un paesaggio sonoro diviso: in uno spazio l'organo storico risuona con nuove composizioni sul silenzio; in un altro, registrazioni sovrapposte di interrogatori evocano il silenzio imposto dalla persecuzione politica."
+      },
+      "rasmus-munk": {
+        "role": "Chef · Artista Concettuale",
+        "body": "Chef e artista concettuale Danese, co-proprietario e chef principale di Alchemist a Copenaghen, premiato con due stelle Michelin e tra i primi cinque ristoranti al mondo. La sua pratica immersiva intreccia gastronomia, performance e attivismo, affrontando temi come il cambiamento climatico, il lavoro minorile e l'inquinamento da microplastiche. Per Venezia presenta Taste of Nothing, un'installazione commestibile che richiama la privazione subita dai prigionieri Bielorussi e il silenzio imposto dall'autoritarismo."
+      },
+      "ales-pushkin": {
+        "role": "Pittore · Performance",
+        "body": "Pittore, artista performativo e attivista Bielorusso, ricordato come una delle figure più coraggiose del movimento non ufficiale. Perseguitato per tutta la vita dal regime di Lukašėnka, incarcerato più volte, morì in custodia nel 2023. A Venezia viene esposta una sola opera — Saying Goodbye to Motherland, trafugata clandestinamente fuori dalla Bielorussia — un addio personale e un'elegia collettiva per un Paese tenuto prigioniero dalla dittatura."
+      }
+    }
   },
   "visit": {
     "eyebrow": "VISITA",

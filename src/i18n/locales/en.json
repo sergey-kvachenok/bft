@@ -1,6 +1,7 @@
 {
   "nav": {
     "about": "ABOUT",
+    "participants": "PARTICIPANTS",
     "visit": "VISIT"
   },
   "surveillance": {
@@ -23,6 +24,42 @@
   },
   "feeds": {
     "artwork": "Photograph from the Official. Unofficial. Belarus. exhibition by Belarus Free Theatre at La Biennale di Venezia"
+  },
+  "participants": {
+    "eyebrow": "PARTICIPANTS",
+    "title": "SEVEN VOICES.\nONE COUNTRY.",
+    "intro": "Curator, painters, composer, playwright, chef. Artists who continue to work — in exile, in prison, in silence — to tell Belarus as it is, not as the state imagines it.",
+    "noPortrait": "NO PORTRAIT — DIED IN CUSTODY, 2023",
+    "bios": {
+      "daniella-kaliada": {
+        "role": "Curator",
+        "body": "Curator of the artist-led Belarusian exhibition at the 61st Venice Biennale. Born in Minsk, exiled to England aged ten, she has worked with Belarus Free Theatre for over fifteen years on productions including the Olivier-nominated King Stakh's Wild Hunt and the award-winning Dogs of Europe. Her independent practice, including Surveillance Crucifixion, explores memory, exile, and the reclamation of suppressed narratives. She studied at UCL and the Courtauld Institute of Art, specialising in Global Conceptualism."
+      },
+      "nicolai-khalezin": {
+        "role": "Playwright · Curator",
+        "body": "Belarusian playwright, curator, and cultural strategist whose work sits at the intersection of art, politics, and civil resistance. Founder of the only independent art gallery in 1990s Minsk — forcibly closed by the regime — he co-founded Belarus Free Theatre in 2005, staging performances in apartments, warehouses, and forest clearings under threat of arrest. Now in exile, he continues to direct the company internationally while keeping its work anchored to audiences inside Belarus."
+      },
+      "sergey-grinevich": {
+        "role": "Painter",
+        "body": "Painter and one of the most prominent voices of Belarus's unofficial art movement. A graduate of the Belarusian State Academy of Arts (1983), he has worked for over four decades between figurative tradition and contemporary experimentation, with monumental figures marked by irony, play, and political critique. His work has appeared at Art Riga, Erarta, Art Southampton, Art Zurich, and Art Vilnius, and is held by the Ludwig Museum and the Tretyakov Gallery."
+      },
+      "vladimir-tsesler": {
+        "role": "Conceptual Artist",
+        "body": "One of the most uncompromising figures in Belarusian art, fusing conceptual rigour, political acuity, and biting irony across graphic art, sculpture, and installation. With Sergei Voichenko he formed the legendary Perestroika-era duo Tsesler & Voichenko, defining the visual language of late-Soviet dissent. His later sculptures function as quiet, ethical monuments to resistance — insisting on ambiguity, memory, and critical thought in environments built to eliminate all three."
+      },
+      "volha-podgaiskaya": {
+        "role": "Composer · Organist",
+        "body": "Composer and organist bridging sacred tradition and contemporary experimentation. Trained at the Belarusian State Academy of Music and the Haute École de Musique in Geneva, she juxtaposes liturgical sound with experimental form. For Venice she creates a divided soundscape: in one space, the historic organ sounds new compositions on the silence; in another, overlapping recordings of interrogations evoke the silence enforced by political persecution."
+      },
+      "rasmus-munk": {
+        "role": "Chef · Conceptual Artist",
+        "body": "Danish chef and conceptual artist, co-owner and head chef of two-Michelin-starred Alchemist in Copenhagen — named one of the top five restaurants in the world. His immersive practice fuses gastronomy, performance, and activism, addressing climate, child labour, and microplastic pollution through food. For Venice he contributes Taste of Nothing, an edible installation drawn from the deprivation of Belarusian prisoners and the enforced silence of authoritarianism."
+      },
+      "ales-pushkin": {
+        "role": "Painter · Performance",
+        "body": "Belarusian painter, performance artist, and activist, remembered as one of the most courageous figures of the country's unofficial movement. Persecuted throughout his life by the Lukashenka regime, imprisoned repeatedly, he died in custody in 2023. A single work is shown in Venice — Saying Goodbye to Motherland, smuggled clandestinely out of Belarus — a personal farewell and a collective elegy for a country held captive by dictatorship."
+      }
+    }
   },
   "visit": {
     "eyebrow": "VISIT",

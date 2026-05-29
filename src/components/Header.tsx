@@ -8,6 +8,7 @@ import { LINK_INLINE } from '../lib/ui';
 
 const NAV_ITEMS = [
   { id: SECTION_IDS.about, key: 'nav.about' },
+  { id: SECTION_IDS.participants, key: 'nav.participants' },
   { id: SECTION_IDS.visit, key: 'nav.visit' },
 ] as const;
 

@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/sections/Hero';
 import { CamGrid } from './components/CamGrid';
 import { About } from './components/sections/About';
+import { Participants } from './components/sections/Participants';
 import { Visit } from './components/sections/Visit';
 import { Footer } from './components/Footer';
 
@@ -30,6 +31,7 @@ export default function App() {
         <Hero />
         <CamGrid />
         <About />
+        <Participants />
         <Visit />
       </main>
       <Footer />

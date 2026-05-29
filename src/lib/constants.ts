@@ -1,6 +1,7 @@
 export const SECTION_IDS = {
   hero: 'hero',
   about: 'about',
+  participants: 'participants',
   visit: 'visit',
 } as const;
 
