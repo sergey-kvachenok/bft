@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { pad } from './format';
 
+// The exhibition is in Venice — render every CCTV timestamp in local Venice
+// time (Europe/Rome), regardless of where the visitor is browsing from.
+const VENICE_TZ = 'Europe/Rome';
+
 export interface SurveillanceClock {
   /** Current Date — re-renders consumers every second. */
   now: Date;
@@ -30,8 +34,10 @@ export function useSurveillanceClock(): SurveillanceClock {
   return { now, elapsed };
 }
 
+// `sv-SE` formats as `YYYY-MM-DD HH:MM:SS` (24-hour, ISO-ish with a space) —
+// the cheapest way to get the layout we want in an arbitrary IANA zone.
 export function formatTimestamp(d: Date): string {
-  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1, 2)}-${pad(d.getUTCDate(), 2)} ${pad(d.getUTCHours(), 2)}:${pad(d.getUTCMinutes(), 2)}:${pad(d.getUTCSeconds(), 2)}`;
+  return d.toLocaleString('sv-SE', { timeZone: VENICE_TZ });
 }
 
 export function formatRecElapsed(seconds: number): string {

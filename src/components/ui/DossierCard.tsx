@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
 
 interface DossierCardProps {
@@ -15,6 +16,8 @@ interface DossierCardProps {
   fallback?: ReactNode;
   /** Variant content below the title (meta + body, BE subtitle + dl, etc.). */
   children?: ReactNode;
+  /** When set with `photo`, the photo becomes a button that triggers this. */
+  onPhotoClick?: () => void;
 }
 
 /**
@@ -31,7 +34,10 @@ export function DossierCard({
   photo,
   fallback,
   children,
+  onPhotoClick,
 }: DossierCardProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.li
       {...whileInViewProps}
@@ -79,6 +85,20 @@ export function DossierCard({
           >
             {photo.credit}
           </span>
+        )}
+
+        {photo && onPhotoClick && (
+          <button
+            type="button"
+            onClick={onPhotoClick}
+            aria-label={t('a11y.enlargePhoto', { name: title })}
+            className="
+              absolute inset-0 z-20 cursor-zoom-in
+              focus-visible:outline focus-visible:outline-2
+              focus-visible:outline-[var(--color-signal)]
+              focus-visible:-outline-offset-2
+            "
+          />
         )}
       </div>
 

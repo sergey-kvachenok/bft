@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GRID_ARTWORKS } from '../lib/artworks';
 import { STORAGE_KEYS } from '../lib/constants';
 import { cn } from '../lib/cn';
-import { CamPopup } from './CamPopup';
+import { CamPopup, type PopupImage } from './CamPopup';
 
 const TILE_PX = 100;
 const GRID_ROWS = 2;
@@ -35,6 +35,17 @@ export function CamGrid() {
     readLastViewed(GRID_ARTWORKS.length),
   );
   const lastTileRef = useRef<HTMLButtonElement | null>(null);
+
+  const popupImages = useMemo<readonly PopupImage[]>(
+    () =>
+      GRID_ARTWORKS.map((a) => ({
+        src: a.src,
+        alt: t(a.altKey),
+        camId: a.camId,
+        location: a.location,
+      })),
+    [t],
+  );
 
   useEffect(() => {
     if (lastViewed === null) window.localStorage.removeItem(STORAGE_KEY);
@@ -140,7 +151,7 @@ export function CamGrid() {
       </section>
 
       <CamPopup
-        artworks={GRID_ARTWORKS}
+        images={popupImages}
         index={activeIndex}
         onClose={() => setActiveIndex(null)}
         onIndexChange={(i) => {

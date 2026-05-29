@@ -89,7 +89,8 @@
     "prevCam": "Previous camera",
     "nextCam": "Next camera",
     "pauseFeed": "Pause camera feed",
-    "playFeed": "Play camera feed"
+    "playFeed": "Play camera feed",
+    "enlargePhoto": "Enlarge photo: {{name}}"
   },
   "camGrid": {
     "aria": "Multi-view camera wall",

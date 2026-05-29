@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { Section } from '../ui/Section';
 import { DossierCard } from '../ui/DossierCard';
+import { CamPopup, type PopupImage } from '../CamPopup';
 import { SECTION_IDS } from '../../lib/constants';
 import { WORKS } from '../../lib/worksList';
 import { pad } from '../../lib/format';
@@ -11,8 +13,21 @@ import { fadeUp, whileInViewProps } from '../../lib/motion';
 // constant across cards — kept local because it lives next to its only use.
 const PHOTO_CREDIT = '© Belarus Free Theatre. Photo Dasha Trofimova';
 
+const workTag = (i: number) => `WORK ${pad(i + 1, 2)}`;
+const workSrc = (slug: string) => `/images/works/${slug}.webp`;
+const workAlt = (w: (typeof WORKS)[number]) =>
+  `${w.titleEn} (${w.titleBe}) — ${w.artist}`;
+
+const WORK_POPUP_IMAGES: readonly PopupImage[] = WORKS.map((w, i) => ({
+  src: workSrc(w.slug),
+  alt: workAlt(w),
+  camId: workTag(i),
+  location: w.titleEn,
+}));
+
 export function Works() {
   const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <Section
@@ -34,14 +49,15 @@ export function Works() {
         {WORKS.map((w, i) => (
           <DossierCard
             key={w.slug}
-            tag={`WORK ${pad(i + 1, 2)}`}
+            tag={workTag(i)}
             eyebrow={w.artist}
             title={w.titleEn}
             photo={{
-              src: `/images/works/${w.slug}.webp`,
-              alt: `${w.titleEn} (${w.titleBe}) — ${w.artist}`,
+              src: workSrc(w.slug),
+              alt: workAlt(w),
               credit: PHOTO_CREDIT,
             }}
+            onPhotoClick={() => setActiveIndex(i)}
           >
             <p
               className="font-display text-[var(--color-mute)] mb-5"
@@ -65,6 +81,13 @@ export function Works() {
           </DossierCard>
         ))}
       </ol>
+
+      <CamPopup
+        images={WORK_POPUP_IMAGES}
+        index={activeIndex}
+        onClose={() => setActiveIndex(null)}
+        onIndexChange={setActiveIndex}
+      />
     </Section>
   );
 }

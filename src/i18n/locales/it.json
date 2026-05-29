@@ -89,7 +89,8 @@
     "prevCam": "Telecamera precedente",
     "nextCam": "Telecamera successiva",
     "pauseFeed": "Metti in pausa il feed",
-    "playFeed": "Riproduci il feed"
+    "playFeed": "Riproduci il feed",
+    "enlargePhoto": "Ingrandisci foto: {{name}}"
   },
   "camGrid": {
     "aria": "Parete multi-vista delle telecamere",

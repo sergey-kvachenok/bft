@@ -2,15 +2,22 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { CamFrame } from './ui/CamFrame';
-import { type Artwork } from '../lib/artworks';
 import { EASE_EDITORIAL } from '../lib/motion';
 import { Key } from '../lib/keys';
 
 const FOCUSABLE_SELECTOR =
   'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
 
+/** Image data the popup needs. alt is already-resolved text, not an i18n key. */
+export interface PopupImage {
+  src: string;
+  alt: string;
+  camId: string;
+  location: string;
+}
+
 interface CamPopupProps {
-  artworks: readonly Artwork[];
+  images: readonly PopupImage[];
   index: number | null;
   onClose: () => void;
   onIndexChange: (i: number) => void;
@@ -48,15 +55,15 @@ const step = (i: number, delta: number, total: number) =>
  * left/right buttons or ArrowLeft/ArrowRight. Wraps at both ends.
  */
 export function CamPopup({
-  artworks,
+  images,
   index,
   onClose,
   onIndexChange,
 }: CamPopupProps) {
   const { t } = useTranslation();
   const open = index !== null;
-  const artwork = open ? artworks[index] : null;
-  const total = artworks.length;
+  const image = open ? images[index] : null;
+  const total = images.length;
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const go = (delta: number) =>
@@ -115,7 +122,7 @@ export function CamPopup({
 
   return (
     <AnimatePresence>
-      {artwork && (
+      {image && (
         <motion.div
           ref={dialogRef}
           initial={{ opacity: 0 }}
@@ -126,7 +133,7 @@ export function CamPopup({
           onClick={onClose}
           role="dialog"
           aria-modal="true"
-          aria-label={`${artwork.camId} — ${artwork.location}`}
+          aria-label={`${image.camId} — ${image.location}`}
         >
           <motion.div
             initial={{ scale: 0.96, opacity: 0 }}
@@ -138,17 +145,17 @@ export function CamPopup({
           >
             <div className="relative w-full h-full sm:aspect-video sm:h-auto">
               <CamFrame
-                camId={artwork.camId}
-                location={artwork.location}
+                camId={image.camId}
+                location={image.location}
                 className="absolute inset-0 h-full w-full"
               >
                 <img
-                  key={artwork.src}
-                  src={artwork.src}
-                  alt={t(artwork.altKey)}
+                  key={image.src}
+                  src={image.src}
+                  alt={image.alt}
                   loading="eager"
                   decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-contain"
                 />
               </CamFrame>
             </div>
