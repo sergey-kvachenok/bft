@@ -1,6 +1,6 @@
 # Official. Unofficial. Belarus.
 
-Mobile-first PWA for the Belarus Free Theatre exhibition at La Biennale di Venezia. The site is a single-page QR-target landing page with EN / IT / BE translations.
+Mobile-first React app for the Belarus Free Theatre exhibition at La Biennale di Venezia. The site is a single-page QR-target landing page with EN / IT / BE translations.
 
 ## Stack
 
@@ -8,7 +8,6 @@ Mobile-first PWA for the Belarus Free Theatre exhibition at La Biennale di Venez
 |---|---|
 | Build | Vite 6 + React 19 + TypeScript |
 | Styling | Tailwind CSS v4 (CSS-first config) |
-| PWA | vite-plugin-pwa v1 (autoUpdate) |
 | Animation | Motion (formerly Framer Motion) |
 | i18n | react-i18next |
 | Hosting | Vercel (target — not yet deployed) |
@@ -46,17 +45,6 @@ Today every "Key Work" tile is a CSS gradient with the work's title overlaid (cl
 
 The same pattern applies to the OG image — replace `public/og-image.jpg` (1200×630) and the press-kit assets under `public/press/`.
 
-## PWA icons
-
-`public/icon.svg` is the source. Most modern browsers accept SVG manifest icons, **but iOS still wants a rasterized PNG for homescreen install**. Before launch:
-
-```bash
-# One option — install pwa-asset-generator and regenerate
-npx pwa-asset-generator public/icon.svg public --background "#0a0a0a"
-```
-
-Then update `vite.config.ts`'s `manifest.icons` to point at the generated `pwa-192-192.png` / `pwa-512-512.png`.
-
 ## Adding a new translation
 
 1. Copy `src/i18n/locales/en.json` to `xx.json` and translate.
@@ -83,7 +71,6 @@ After the first production deploy, point the QR code at the Vercel URL (or your 
 
 - [ ] Replace placeholder copy in all three locale files (curatorial text, work descriptions, dates, address, hours).
 - [ ] Provide real photography for the six key works and OG image.
-- [ ] Generate raster PNG icons (see above).
 - [ ] Drop the real press kit PDF + images zip into `public/press/`.
 - [ ] Confirm exhibition dates, pavilion address, and accessibility info.
 - [ ] Decide on analytics (Plausible recommended) and add the snippet.
