@@ -17,6 +17,12 @@ interface CamFrameProps {
    * instances so chrome never collides with page navigation.
    */
   offsetTopForHeader?: boolean;
+  /**
+   * Keeps the top-right corner clear for an overlay control that sits above the
+   * frame — the popup's close button. The REC timer moves inboard and the cam
+   * id gives up width, so neither ends up underneath it.
+   */
+  reserveTopRight?: boolean;
 }
 
 const CORNER_BASE =
@@ -29,6 +35,13 @@ const BURN_IN_TIMESTAMP_SIZE = 'text-[9px] sm:text-[10px]';
 
 // Cleared by SurveillanceBand (h-7 = 28px) + Header (h-12 = 48px) = 76px.
 const TOP_OFFSET_HERO = 'top-20 sm:top-24';
+
+// Right inset of the top-row chrome, and how much width the cam id may take.
+// The reserved variants leave room for a 44px control inset from the corner.
+const RIGHT_INSET = 'right-3 sm:right-5';
+const RIGHT_INSET_RESERVED = 'right-16';
+const CAM_ID_WIDTH = 'max-w-[60%]';
+const CAM_ID_WIDTH_RESERVED = 'max-w-[55%]';
 const TOP_OFFSET_CORNER = 'top-2 sm:top-3';
 const TOP_OFFSET_LABEL = 'top-3 sm:top-5';
 
@@ -50,11 +63,14 @@ export function CamFrame({
   className,
   progress,
   offsetTopForHeader = false,
+  reserveTopRight = false,
 }: CamFrameProps) {
   const { timestamp, recElapsed } = useSurveillanceClock();
 
   const cornerTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_CORNER;
   const labelTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_LABEL;
+  const rightInset = reserveTopRight ? RIGHT_INSET_RESERVED : RIGHT_INSET;
+  const camIdWidth = reserveTopRight ? CAM_ID_WIDTH_RESERVED : CAM_ID_WIDTH;
 
   return (
     <div
@@ -73,14 +89,15 @@ export function CamFrame({
           BURN_IN_BASE,
           BURN_IN_LABEL_SIZE,
           labelTop,
-          'left-3 sm:left-5 flex items-center gap-1.5 sm:gap-2 max-w-[60%]',
+          'left-3 sm:left-5 flex items-center gap-1.5 sm:gap-2',
+          camIdWidth,
         )}
       >
         <span className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[var(--color-signal)] rec-dot shrink-0" />
-        <span className="font-medium">{camId}</span>
+        <span className="font-medium shrink-0 whitespace-nowrap">{camId}</span>
         {location && (
           <>
-            <span className="text-[var(--color-mute)]">·</span>
+            <span className="text-[var(--color-mute)] shrink-0">·</span>
             <span className="truncate">{location}</span>
           </>
         )}
@@ -92,7 +109,8 @@ export function CamFrame({
           BURN_IN_BASE,
           BURN_IN_LABEL_SIZE,
           labelTop,
-          'right-3 sm:right-5 flex items-center gap-1.5 sm:gap-2 text-[var(--color-signal)]',
+          rightInset,
+          'flex items-center gap-1.5 sm:gap-2 text-[var(--color-signal)]',
         )}
       >
         <span className="font-medium">REC</span>

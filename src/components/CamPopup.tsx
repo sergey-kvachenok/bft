@@ -187,6 +187,7 @@ export function CamPopup({
               <CamFrame
                 camId={image.camId}
                 location={image.location}
+                reserveTopRight
                 className="absolute inset-0 h-full w-full"
               >
                 <img
