@@ -1,15 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import {
-  formatTimestamp,
-  useSurveillanceClock,
-} from '../lib/useSurveillanceClock';
+import { useSurveillanceClock } from '../lib/useSurveillanceClock';
 import { CAM_COUNT_LABEL, CAM_COUNT_TOTAL } from '../lib/artworks';
 import { SignalBars } from './ui/SignalBars';
 
 export function SurveillanceBand() {
   const { t } = useTranslation();
-  const { now } = useSurveillanceClock();
-  const ts = formatTimestamp(now);
+  const { timestamp } = useSurveillanceClock();
 
   return (
     <div
@@ -48,8 +44,8 @@ export function SurveillanceBand() {
         <span className="ml-auto flex items-center gap-2 sm:gap-3 shrink-0">
           <SignalBars size="sm" className="hidden md:inline-flex" />
           <span className="text-[var(--color-paper)] tabular-nums">
-            <span className="sm:hidden">{ts.slice(11)}</span>
-            <span className="hidden sm:inline">{ts}</span>
+            <span className="sm:hidden">{timestamp.slice(11)}</span>
+            <span className="hidden sm:inline">{timestamp}</span>
           </span>
           <span className="hidden sm:inline text-[var(--color-signal)] font-medium">
             {t('surveillance.live')}

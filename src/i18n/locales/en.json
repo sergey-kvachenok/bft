@@ -1,9 +1,14 @@
 {
+  "meta": {
+    "title": "Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale",
+    "description": "Eighteen works by Belarusian artists in exile, presented by Belarus Free Theatre as a collateral event of the 61st Venice Biennale. Chiesa di San Giovanni Evangelista, 9 May – 22 November 2026."
+  },
   "nav": {
     "primary": "Primary",
     "about": "ABOUT",
     "participants": "PARTICIPANTS",
     "works": "WORKS",
+    "press": "PRESS",
     "visit": "VISIT"
   },
   "surveillance": {
@@ -68,6 +73,38 @@
     "title": "EIGHTEEN WORKS.\nONE EXHIBITION.",
     "intro": "Paintings, sculpture, sound, scent, taste. Eighteen works made in 2026 for the show at La Chiesa di San Giovanni Evangelista — 9 May to 22 November."
   },
+  "press": {
+    "eyebrow": "PRESS",
+    "title": "THE PRESS WATCHED\nTHE WATCHERS.",
+    "intro": "What the international press filed on Official. Unofficial. Belarus. — interviews with the curators, studio visits in exile, and the Biennale round-ups that named the show.",
+    "read": "Read at {{outlet}}",
+    "kinds": {
+      "feature": "Feature",
+      "interview": "Interview",
+      "podcast": "Podcast",
+      "roundup": "Round-up"
+    },
+    "items": {
+      "guardian-totalitarian-terror": {
+        "summary": "Melissa Denes visits the Warsaw studio where former political prisoners cut wheat to 90 cm, weld surveillance cameras onto an iron crucifix and pile banned books into a ball under a bulldozer claw. A commissioned scent and a dish by chef Rasmus Munk carry the smell and taste of detention to Venice."
+      },
+      "artnews-what-repression-feels-like": {
+        "summary": "Curator Daniella Kaliada on why this is the first time Belarus appears at the Biennale as a self-authored cultural body rather than a state, and why she argues Belarus is a prototype, not an exception — an early model of a condition that is now global."
+      },
+      "frieze-censorship-exile-politics": {
+        "summary": "Natalia Kaliada and Daniella Kaliada talk to Terence Trouillot about censorship, exile and the politics of a Biennale that welcomed Russia's pavilion back. They describe an exhibition built to shift the viewer's position until they are implicated in what they are watching."
+      },
+      "art-newspaper-podcast": {
+        "summary": "The Art Newspaper's Venice Biennale special. Alexander Morrison interviews Daniella Kaliada about the collateral project at La Chiesa di San Giovanni Evangelista, alongside the paper's review of the main exhibition In Minor Keys."
+      },
+      "art-newspaper-best-pavilions": {
+        "summary": "A special mention in the paper's pick of the best pavilions: a wheat field, metal straw spiders, commissioned scent and facial recognition — described as Belarus's first independent contribution to the Biennale, completely unconnected to the Belarusian government."
+      },
+      "artnet-best-in-show": {
+        "summary": "Artnet News names the exhibition one of six standouts of the 61st Biennale, singling out Sergey Grinevich's new paintings — conceived and hung like altarpieces — as a comment on contemporary threats to privacy."
+      }
+    }
+  },
   "visit": {
     "eyebrow": "VISIT",
     "title": "FIND THE DOOR.",
@@ -78,7 +115,9 @@
     "title": "BELARUS FREE THEATRE.",
     "credit": "Belarus Free Theatre",
     "downloadPressRelease": "Download press release",
-    "downloadPressReleaseAria": "Download press release (DOCX, 172 KB)"
+    "downloadPressReleaseAria": "Download press release (DOCX, 172 KB)",
+    "follow": "FOLLOW",
+    "instagramAria": "Instagram: @{{handle}}"
   },
   "a11y": {
     "skipToContent": "Skip to content",

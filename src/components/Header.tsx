@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { id: SECTION_IDS.about, key: 'nav.about' },
   { id: SECTION_IDS.participants, key: 'nav.participants' },
   { id: SECTION_IDS.works, key: 'nav.works' },
+  { id: SECTION_IDS.press, key: 'nav.press' },
   { id: SECTION_IDS.visit, key: 'nav.visit' },
 ] as const;
 

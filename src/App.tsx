@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 import { SurveillanceBand } from './components/SurveillanceBand';
 import { Header } from './components/Header';
 import { Hero } from './components/sections/Hero';
@@ -7,17 +6,18 @@ import { CamGrid } from './components/CamGrid';
 import { About } from './components/sections/About';
 import { Participants } from './components/sections/Participants';
 import { Works } from './components/sections/Works';
+import { Press } from './components/sections/Press';
 import { Visit } from './components/sections/Visit';
 import { Footer } from './components/Footer';
 import { useHashFocus } from './lib/useHashFocus';
+import { useDocumentMeta } from './lib/useDocumentMeta';
+import { useLocaleHistory } from './lib/useLocaleRouting';
 
 export default function App() {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    document.documentElement.lang = i18n.resolvedLanguage ?? 'en';
-  }, [i18n.resolvedLanguage]);
-
+  useLocaleHistory();
+  useDocumentMeta();
   useHashFocus();
 
   return (
@@ -37,6 +37,7 @@ export default function App() {
         <About />
         <Participants />
         <Works />
+        <Press />
         <Visit />
       </main>
       <Footer />

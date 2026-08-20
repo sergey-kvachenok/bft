@@ -5,35 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0a0a0a" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <title>Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale</title>
     <meta
       name="description"
-      content="Official. Unofficial. Belarus. — an exhibition by Belarus Free Theatre at La Biennale di Venezia. Mobile-first companion guide."
+      content="Official. Unofficial. Belarus. — eighteen works by Belarusian artists in exile, presented by Belarus Free Theatre as a collateral event of the 61st Venice Biennale. Chiesa di San Giovanni Evangelista, 9 May – 22 November 2026."
     />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <!-- HREFLANG -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="Belarus Free Theatre" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Official. Unofficial. Belarus." />
+    <meta property="og:site_name" content="Official. Unofficial. Belarus." />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta
+      property="og:title"
+      content="Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale"
+    />
     <meta
       property="og:description"
-      content="Belarus Free Theatre at the Venice Biennale. An exhibition of resistance, memory, and witness."
+      content="Eighteen works made under surveillance, about surveillance. Belarus's first independent contribution to the Venice Biennale, by the only theatre in Europe banned by its own government."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Official. Unofficial. Belarus. — Belarus Free Theatre at La Biennale di Venezia, 9 May to 22 November 2026."
+    />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="be_BY" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Official. Unofficial. Belarus." />
+    <meta
+      name="twitter:title"
+      content="Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale"
+    />
     <meta
       name="twitter:description"
-      content="Belarus Free Theatre at the Venice Biennale."
+      content="Eighteen works made under surveillance, about surveillance. Belarus's first independent contribution to the Venice Biennale."
     />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Official. Unofficial. Belarus. — Belarus Free Theatre at La Biennale di Venezia, 9 May to 22 November 2026."
+    />
 
-    <!-- Performance: preconnect to font CDN if used -->
+    <!--
+      Prerendered markup carries the scroll-reveal start state (opacity: 0),
+      which only JavaScript clears. Readers without it get the content shown.
+    -->
+    <noscript>
+      <style>
+        #root [style*="opacity:0"] {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+        }
+      </style>
+    </noscript>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,27 +78,117 @@
       rel="stylesheet"
     />
 
-    <!-- JSON-LD: Event -->
+    <!-- JSON-LD: the exhibition, its organiser, and the press that covered it -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ExhibitionEvent",
-        "name": "Official. Unofficial. Belarus.",
-        "description": "An exhibition by Belarus Free Theatre at the Venice Biennale.",
-        "organizer": {
-          "@type": "Organization",
-          "name": "Belarus Free Theatre",
-          "url": "https://belarusfreetheatre.com"
-        },
-        "location": {
-          "@type": "Place",
-          "name": "La Biennale di Venezia",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Venezia",
-            "addressCountry": "IT"
+        "@graph": [
+          {
+            "@type": "ExhibitionEvent",
+            "@id": "%SITE_URL%/#exhibition",
+            "name": "Official. Unofficial. Belarus.",
+            "alternateName": "Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale",
+            "description": "Eighteen works by Belarusian artists — painting, sculpture, sound, scent and taste — presented by Belarus Free Theatre as a collateral event of the 61st Venice Biennale. Belarus's first independent contribution to the Biennale, unconnected to the Belarusian government.",
+            "url": "%SITE_URL%/",
+            "image": "%SITE_URL%/og-image.jpg",
+            "inLanguage": ["en", "it", "be"],
+            "startDate": "2026-05-09",
+            "endDate": "2026-11-22",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "organizer": { "@id": "%SITE_URL%/#organizer" },
+            "superEvent": {
+              "@type": "Event",
+              "name": "La Biennale di Venezia — 61st International Art Exhibition",
+              "url": "https://www.labiennale.org"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Chiesa di San Giovanni Evangelista",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "San Polo 2454",
+                "addressLocality": "Venezia",
+                "addressRegion": "Veneto",
+                "postalCode": "30125",
+                "addressCountry": "IT"
+              }
+            },
+            "performer": [
+              { "@type": "Person", "name": "Sergey Grinevich" },
+              { "@type": "Person", "name": "Vladimir Tsesler" },
+              { "@type": "Person", "name": "Nicolai Khalezin" },
+              { "@type": "Person", "name": "Volha Podgaiskaya" },
+              { "@type": "Person", "name": "Rasmus Munk" },
+              { "@type": "Person", "name": "Ales Pushkin" }
+            ],
+            "subjectOf": [
+              {
+                "@type": "NewsArticle",
+                "headline": "‘The doorbell went at 5am. Six masked men were outside’: Belarus Free Theatre bring totalitarian terror to the Venice Biennale",
+                "datePublished": "2026-04-28",
+                "url": "https://www.theguardian.com/artanddesign/2026/apr/28/belarus-free-theatre-venice-biennale",
+                "publisher": { "@type": "Organization", "name": "The Guardian" }
+              },
+              {
+                "@type": "NewsArticle",
+                "headline": "Belarus Free Theatre’s Venice Exhibition Shows What Repression Feels Like",
+                "url": "https://www.artnews.com/art-news/news/belarus-free-theatre-venice-exhibition-interview-1234782107/",
+                "publisher": { "@type": "Organization", "name": "ARTnews" }
+              },
+              {
+                "@type": "NewsArticle",
+                "headline": "Belarus Free Theatre on Censorship, Exile and the Politics of the Venice Biennale",
+                "datePublished": "2026-05-08",
+                "url": "https://www.frieze.com/article/belarus-free-theatre-interview-venice-biennale",
+                "publisher": { "@type": "Organization", "name": "Frieze" }
+              },
+              {
+                "@type": "PodcastEpisode",
+                "name": "Venice Biennale Special 2026 — podcast",
+                "datePublished": "2026-05-08",
+                "url": "https://www.theartnewspaper.com/2026/05/08/venice-biennale-special-2026podcast",
+                "publisher": { "@type": "Organization", "name": "The Art Newspaper" }
+              },
+              {
+                "@type": "NewsArticle",
+                "headline": "Our pick of the best pavilions at the 61st Venice Biennale",
+                "datePublished": "2026-05-06",
+                "url": "https://www.theartnewspaper.com/2026/05/06/our-pick-of-the-best-pavilions-at-the-61st-venice-biennale",
+                "publisher": { "@type": "Organization", "name": "The Art Newspaper" }
+              },
+              {
+                "@type": "NewsArticle",
+                "headline": "Best in Show: 6 Standouts at the 2026 Venice Biennale",
+                "url": "https://news.artnet.com/art-world/venice-biennale-picks-2026-2771280",
+                "publisher": { "@type": "Organization", "name": "Artnet News" }
+              }
+            ]
+          },
+          {
+            "@type": "PerformingGroup",
+            "@id": "%SITE_URL%/#organizer",
+            "name": "Belarus Free Theatre",
+            "description": "The only theatre in Europe banned by its own government on political grounds, working from exile since 2011.",
+            "url": "https://belarusfreetheatre.com",
+            "foundingDate": "2005",
+            "sameAs": [
+              "https://belarusfreetheatre.com",
+              "https://www.instagram.com/belarusfreetheatre",
+              "https://www.instagram.com/official.unofficial.belarus",
+              "https://en.wikipedia.org/wiki/Belarus_Free_Theatre"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "url": "%SITE_URL%/",
+            "name": "Official. Unofficial. Belarus.",
+            "inLanguage": "en",
+            "publisher": { "@id": "%SITE_URL%/#organizer" },
+            "about": { "@id": "%SITE_URL%/#exhibition" }
           }
-        }
+        ]
       }
     </script>
   </head>

@@ -1,9 +1,14 @@
 {
+  "meta": {
+    "title": "Official. Unofficial. Belarus. — Belarus Free Theatre alla Biennale di Venezia",
+    "description": "Diciotto opere di artisti bielorussi in esilio, presentate dal Belarus Free Theatre come evento collaterale della 61ª Biennale di Venezia. Chiesa di San Giovanni Evangelista, 9 maggio – 22 novembre 2026."
+  },
   "nav": {
     "primary": "Principale",
     "about": "INFO",
     "participants": "PARTECIPANTI",
     "works": "OPERE",
+    "press": "STAMPA",
     "visit": "VISITA"
   },
   "surveillance": {
@@ -68,6 +73,38 @@
     "title": "DICIOTTO OPERE.\nUNA MOSTRA.",
     "intro": "Pittura, scultura, suono, profumo, gusto. Diciotto opere realizzate nel 2026 per la mostra alla Chiesa di San Giovanni Evangelista — dal 9 maggio al 22 novembre."
   },
+  "press": {
+    "eyebrow": "STAMPA",
+    "title": "LA STAMPA HA OSSERVATO\nGLI OSSERVATORI.",
+    "intro": "Ciò che la stampa internazionale ha scritto su Official. Unofficial. Belarus. — interviste ai curatori, visite allo studio in esilio e le selezioni della Biennale che hanno segnalato la mostra.",
+    "read": "Leggi su {{outlet}}",
+    "kinds": {
+      "feature": "Reportage",
+      "interview": "Intervista",
+      "podcast": "Podcast",
+      "roundup": "Selezione"
+    },
+    "items": {
+      "guardian-totalitarian-terror": {
+        "summary": "Melissa Denes visita lo studio di Varsavia dove ex prigionieri politici tagliano il grano a 90 cm, saldano telecamere di sorveglianza su un crocifisso di ferro e ammassano libri proibiti in una sfera sotto la benna di un bulldozer. Un profumo commissionato e un piatto dello chef Rasmus Munk portano a Venezia l'odore e il sapore della detenzione."
+      },
+      "artnews-what-repression-feels-like": {
+        "summary": "La curatrice Daniella Kaliada spiega perché è la prima volta che la Bielorussia arriva alla Biennale come soggetto culturale autonomo e non come Stato, e perché a suo avviso la Bielorussia è un prototipo, non un'eccezione: il modello anticipato di una condizione oggi globale."
+      },
+      "frieze-censorship-exile-politics": {
+        "summary": "Natalia Kaliada e Daniella Kaliada parlano con Terence Trouillot di censura, esilio e della politica di una Biennale che ha riaccolto il padiglione russo. Descrivono una mostra costruita per spostare la posizione di chi guarda, fino a renderlo complice di ciò che osserva."
+      },
+      "art-newspaper-podcast": {
+        "summary": "Lo speciale Biennale di Venezia di The Art Newspaper. Alexander Morrison intervista Daniella Kaliada sul progetto collaterale alla Chiesa di San Giovanni Evangelista, insieme alla recensione della mostra principale In Minor Keys."
+      },
+      "art-newspaper-best-pavilions": {
+        "summary": "Una menzione speciale nella selezione dei migliori padiglioni: un campo di grano, ragni di paglia in metallo, un profumo commissionato e il riconoscimento facciale — definita la prima partecipazione bielorussa indipendente alla Biennale, del tutto estranea al governo di Minsk."
+      },
+      "artnet-best-in-show": {
+        "summary": "Artnet News inserisce la mostra tra i sei momenti migliori della 61ª Biennale, segnalando i nuovi dipinti di Sergey Grinevich — concepiti e allestiti come pale d'altare — come riflessione sulle minacce contemporanee alla privacy."
+      }
+    }
+  },
   "visit": {
     "eyebrow": "VISITA",
     "title": "TROVA LA PORTA.",
@@ -78,7 +115,9 @@
     "title": "BELARUS FREE THEATRE.",
     "credit": "Belarus Free Theatre",
     "downloadPressRelease": "Scarica il comunicato stampa",
-    "downloadPressReleaseAria": "Scarica il comunicato stampa (DOCX, 172 KB)"
+    "downloadPressReleaseAria": "Scarica il comunicato stampa (DOCX, 172 KB)",
+    "follow": "SEGUICI",
+    "instagramAria": "Instagram: @{{handle}}"
   },
   "a11y": {
     "skipToContent": "Vai al contenuto",

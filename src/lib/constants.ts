@@ -3,6 +3,7 @@ export const SECTION_IDS = {
   about: 'about',
   participants: 'participants',
   works: 'works',
+  press: 'press',
   visit: 'visit',
 } as const;
 
@@ -13,6 +14,13 @@ export const EXTERNAL_LINKS = {
   biennale: 'https://www.labiennale.org',
 } as const;
 
+const INSTAGRAM = 'https://www.instagram.com';
+
+export const SOCIAL_LINKS = [
+  { handle: 'official.unofficial.belarus' },
+  { handle: 'belarusfreetheatre' },
+].map(({ handle }) => ({ handle, href: `${INSTAGRAM}/${handle}` }));
+
 export const ASSETS = {
   pressRelease: '/press-release.docx',
   pressReleaseFilename: 'Press Release ENG_Official. Unofficial. Belarus.docx',
@@ -20,5 +28,4 @@ export const ASSETS = {
 
 export const STORAGE_KEYS = {
   lastViewedArtwork: 'bft.lastViewedArtwork',
-  language: 'bft.lang',
 } as const;

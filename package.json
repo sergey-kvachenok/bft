@@ -3,18 +3,19 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Official. Unofficial. Belarus. — Belarus Free Theatre at the Venice Biennale. Mobile-first QR landing page.",
+  "description": "Official. Unofficial. Belarus. — Belarus Free Theatre at the 61st Venice Biennale. Mobile-first companion site.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "qr": "node scripts/generate-qr.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "og-image": "node scripts/generate-og-image.mjs",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "i18next": "^23.16.5",
-    "i18next-browser-languagedetector": "^8.0.0",
     "motion": "^12.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

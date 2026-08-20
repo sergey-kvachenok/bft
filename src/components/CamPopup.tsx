@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { CamFrame } from './ui/CamFrame';
@@ -7,6 +7,10 @@ import { Key } from '../lib/keys';
 
 const FOCUSABLE_SELECTOR =
   'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
+
+// Minimum horizontal travel for a swipe to count as a navigation gesture.
+// Below this, treat the pointer interaction as a tap so button onClick wins.
+const SWIPE_THRESHOLD_PX = 40;
 
 /** Image data the popup needs. alt is already-resolved text, not an i18n key. */
 export interface PopupImage {
@@ -33,9 +37,11 @@ const POPUP_BUTTON_BASE = `
 
 const NAV_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
   top-1/2 -translate-y-1/2
-  w-11 h-11 sm:w-12 sm:h-12
-  bg-black/60 text-[var(--color-paper)] text-2xl
+  w-12 h-12 sm:w-12 sm:h-12
+  bg-black/75 text-[var(--color-paper)] text-2xl
+  border border-[var(--color-paper)]/20
   hover:bg-[var(--color-signal)]
+  active:bg-[var(--color-signal)]
 `;
 
 const CLOSE_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
@@ -66,8 +72,34 @@ export function CamPopup({
   const total = images.length;
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const openerRef = useRef<HTMLElement | null>(null);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const go = (delta: number) =>
     open && onIndexChange(step(index, delta, total));
+
+  // Swipe lives on the image only — the nav and close buttons are siblings of
+  // it, so a gesture can never be mistaken for a press on one of them.
+  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    swipeStartRef.current = e.isPrimary
+      ? { x: e.clientX, y: e.clientY }
+      : null;
+  };
+
+  const onPointerUp = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const start = swipeStartRef.current;
+    swipeStartRef.current = null;
+    if (!start || !e.isPrimary) return;
+
+    const dx = e.clientX - start.x;
+    // Vertical-dominant travel is a scroll or a pinch, not a page turn.
+    if (Math.abs(dx) < SWIPE_THRESHOLD_PX) return;
+    if (Math.abs(dx) <= Math.abs(e.clientY - start.y)) return;
+
+    go(dx < 0 ? +1 : -1);
+  };
+
+  const onPointerCancel = () => {
+    swipeStartRef.current = null;
+  };
 
   // Capture opener on transition into open; restore on close. Kept separate
   // from the keydown effect so navigation steps don't re-capture mid-cycle.
@@ -143,7 +175,12 @@ export function CamPopup({
             onClick={(e) => e.stopPropagation()}
             className="relative w-full h-full sm:h-auto sm:max-w-5xl"
           >
-            <div className="relative w-full h-full sm:aspect-video sm:h-auto">
+            <div
+              onPointerDown={onPointerDown}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerCancel}
+              className="relative w-full h-full sm:aspect-video sm:h-auto touch-pan-y select-none"
+            >
               <CamFrame
                 camId={image.camId}
                 location={image.location}
@@ -155,6 +192,7 @@ export function CamPopup({
                   alt={image.alt}
                   loading="eager"
                   decoding="async"
+                  draggable={false}
                   className="absolute inset-0 h-full w-full object-contain"
                 />
               </CamFrame>

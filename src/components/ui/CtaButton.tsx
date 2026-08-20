@@ -8,6 +8,8 @@ interface CtaButtonProps {
   variant?: 'filled' | 'outlined';
   external?: boolean;
   className?: string;
+  /** Overrides the accessible name when the visible label alone is unclear. */
+  ariaLabel?: string;
 }
 
 const VARIANT_CLASS = {
@@ -22,10 +24,12 @@ export function CtaButton({
   variant = 'filled',
   external = false,
   className,
+  ariaLabel,
 }: CtaButtonProps) {
   return (
     <a
       href={href}
+      aria-label={ariaLabel}
       {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
       className={cn(VARIANT_CLASS[variant], className)}
     >

@@ -1,10 +1,6 @@
 import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
-import {
-  formatRecElapsed,
-  formatTimestamp,
-  useSurveillanceClock,
-} from '../../lib/useSurveillanceClock';
+import { useSurveillanceClock } from '../../lib/useSurveillanceClock';
 import { cn } from '../../lib/cn';
 import { SignalBars } from './SignalBars';
 
@@ -55,8 +51,7 @@ export function CamFrame({
   progress,
   offsetTopForHeader = false,
 }: CamFrameProps) {
-  const { now, elapsed } = useSurveillanceClock();
-  const ts = formatTimestamp(now);
+  const { timestamp, recElapsed } = useSurveillanceClock();
 
   const cornerTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_CORNER;
   const labelTop = offsetTopForHeader ? TOP_OFFSET_HERO : TOP_OFFSET_LABEL;
@@ -102,7 +97,7 @@ export function CamFrame({
       >
         <span className="font-medium">REC</span>
         <span className="tabular-nums text-[var(--color-paper)]">
-          {formatRecElapsed(elapsed)}
+          {recElapsed}
         </span>
       </div>
 
@@ -114,8 +109,8 @@ export function CamFrame({
           'bottom-3 sm:bottom-5 left-3 sm:left-5 tabular-nums',
         )}
       >
-        <span className="hidden sm:inline">{ts}</span>
-        <span className="sm:hidden">{ts.slice(11)}</span>
+        <span className="hidden sm:inline">{timestamp}</span>
+        <span className="sm:hidden">{timestamp.slice(11)}</span>
       </div>
 
       <div
