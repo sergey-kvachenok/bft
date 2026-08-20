@@ -13,7 +13,7 @@ export function SurveillanceBand() {
       className="
         fixed top-0 inset-x-0 z-[60]
         h-7 flex items-center
-        bg-black border-b border-[var(--color-rule)]
+        bg-[var(--color-ink-deep)] border-b border-[var(--color-rule)]
         font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.18em]
         text-[var(--color-paper)]
       "

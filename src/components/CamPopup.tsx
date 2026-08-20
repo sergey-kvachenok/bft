@@ -28,6 +28,7 @@ interface CamPopupProps {
 }
 
 const POPUP_BUTTON_BASE = `
+  btn-key
   absolute z-30
   flex items-center justify-center
   font-mono leading-none
@@ -36,10 +37,11 @@ const POPUP_BUTTON_BASE = `
 `;
 
 const NAV_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
-  top-1/2 -translate-y-1/2
+  top-0 bottom-0 my-auto
   w-12 h-12 sm:w-12 sm:h-12
-  bg-black/75 text-[var(--color-paper)] text-2xl
-  border border-[var(--color-paper)]/20
+  bg-[var(--color-ink-2)] text-[var(--color-paper)] text-2xl
+  border border-[var(--color-paper)]/25
+  [--key-edge:var(--color-ink-deep)]
   hover:bg-[var(--color-signal)]
   active:bg-[var(--color-signal)]
 `;
@@ -48,6 +50,7 @@ const CLOSE_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
   top-3 right-3 sm:-top-3 sm:-right-3
   w-11 h-11 text-xl
   bg-[var(--color-signal)] text-[var(--color-paper)]
+  [--key-edge:var(--color-signal-2)]
   hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]
 `;
 
