@@ -100,6 +100,7 @@ Existing top-of-file comments in this repo describe **the role of the file in th
 - **Memoization**: don't reach for `useMemo`/`useCallback` reflexively. Add them only when there's a measured perf problem or a referential-stability requirement (e.g., dep arrays of `useEffect`).
 - **Don't render what you don't need**: see `CamFeedSlider` — only the current frame is mounted (via `AnimatePresence`), not all 8 stacked. With 55 frames, eagerly stacking `<img>` elements with `opacity: 0` would force the browser to preload all of them.
 - **`motion`** is the animation library. Shared easing curves live in `lib/motion.ts` (e.g., `EASE_EDITORIAL`).
+- **Render must be safe at build time.** Components are rendered in Node by `entry-server.tsx`. Never touch `window`, `document`, `localStorage`, `matchMedia`, or `Date` during render — guard with `typeof window === 'undefined'` or move it into an effect. A value that legitimately differs (a clock) renders a fixed placeholder until mount; see `useSurveillanceClock`.
 
 ---
 
@@ -108,6 +109,8 @@ Existing top-of-file comments in this repo describe **the role of the file in th
 - Use Tailwind utility classes in JSX.
 - For repeated combinations, extract a string `const` outside the component (see button base classes in `CamPopup.tsx`).
 - Use `cn()` from `lib/cn.ts` to compose conditional classes — don't pull in `clsx` or `tailwind-merge`.
+- **`cn()` is a plain join, so it does not resolve conflicts.** Two competing utilities are settled by stylesheet order, not by which you passed last. To change a `lib/ui.ts` constant's look, edit or add a variant there — don't append an override at the call site and assume it wins.
+- **Custom classes in `styles.css` sit outside `@layer` and therefore beat Tailwind utilities.** `.btn-key` is the live example: it owns `transform` (so its users must not centre with a translate utility) and deliberately declares no `position` (which would override `absolute`). Getting this wrong silently relocates elements — it already did once.
 - CSS custom properties (`var(--color-signal)`, `var(--color-ink)`, etc.) are defined in `styles.css` for the brand palette. Use them for colors instead of hardcoded hex.
 - Avoid inline styles unless dynamic (e.g., a value derived from a constant like `TILE_SIZE`, or `filter` from an artwork property).
 
@@ -128,7 +131,7 @@ Existing top-of-file comments in this repo describe **the role of the file in th
 
 This is a phone-first app. Every change should be tested at narrow viewport (~375px) first.
 
-- **Bandwidth matters.** A change that adds ~5MB to the PWA install isn't acceptable without justification. Use runtime caching, not precache, for large media.
+- **Bandwidth matters.** There is no offline cache to fall back on — every visitor pays for what you add, often on Venice mobile data. Justify new media, and run it through `npm run optimize-images`.
 - **Lazy-load images** that are off-screen. The grid uses `loading="lazy"`.
 - **Don't stack 55 `<img>` elements** with opacity tricks — see point 5.
 - **Touch first, hover second.** Hover styles are a bonus, not a requirement to discover functionality.
@@ -139,7 +142,9 @@ This is a phone-first app. Every change should be tested at narrow viewport (~37
 
 - **Every user-facing string** goes in `src/i18n/locales/{en,be,it}.json`. No literal English strings in JSX.
 - Add the key to **all three locales** in the same commit. If you don't know Belarusian or Italian, copy the English and flag it.
-- Key naming follows the top-level groups: `nav.*`, `hero.*`, `feeds.*`, `camGrid.*`, `a11y.*`, etc. Group by section, not by component.
+- Key naming follows the top-level groups: `meta.*`, `nav.*`, `hero.*`, `feeds.*`, `participants.*`, `works.*`, `press.*`, `camGrid.*`, `a11y.*`, etc. Group by section, not by component.
+- **Citations and bilingual titles stay out of i18n.** Press headlines are quoted in the outlet's own language; work titles show EN + BE regardless of locale. Translating either would misrepresent the source.
+- **A new section needs `meta.*` too** if it changes what the page is about — that's the indexable title and description, prerendered per locale.
 - Alt text for images uses `feeds.artwork` — one shared string. Don't add per-photo alt keys (would need 55 translations × 3 locales).
 
 ---
@@ -147,7 +152,8 @@ This is a phone-first app. Every change should be tested at narrow viewport (~37
 ## 10. File organization
 
 - Components go in `src/components/`; section-level wrappers in `src/components/sections/`; shared chrome (frames, frames, primitives) in `src/components/ui/`.
-- Shared utilities and data go in `src/lib/`. One concern per file (`artworks.ts`, `constants.ts`, `cn.ts`, `motion.ts`).
+- Shared utilities and data go in `src/lib/`. One concern per file (`artworks.ts`, `constants.ts`, `cn.ts`, `motion.ts`, `site.ts`, `locale.ts`).
+- `vite.config.ts` may import from `src/lib/` — that's how `site.ts` and `locale.ts` stay the single source for the origin and the locale list. Those files must therefore stay free of DOM types; they're compiled by `tsconfig.node.json`, which has no `DOM` lib.
 - Co-located component-specific helpers can live inside the component file if not reused.
 - No `index.ts` barrel files — they bloat the bundle and hide imports.
 
@@ -156,9 +162,10 @@ This is a phone-first app. Every change should be tested at narrow viewport (~37
 ## 11. Before declaring "done"
 
 - [ ] `npm run typecheck` passes.
-- [ ] `npm run build` passes.
-- [ ] If UI changed: started the dev server and verified in a real browser at narrow viewport. If you couldn't test the UI, say so — don't assume.
-- [ ] All new user-facing strings exist in `en`, `be`, `it`.
+- [ ] `npm run build` passes — **all four stages**, prerender included.
+- [ ] If UI changed: verified in a real browser at narrow viewport. Prefer `npm run preview` over `npm run dev` — the dev shell can't reveal a hydration mismatch. If you couldn't test the UI, say so — don't assume.
+- [ ] Browser console clean on load: a hydration warning means prerender and client disagree.
+- [ ] All new user-facing strings exist in `en`, `be`, `it` — and all three prerendered pages still show them (`dist/{,it/,be/}index.html`).
 - [ ] No new duplication (literals, class strings, magic numbers).
 - [ ] No new comments that just describe WHAT.
 - [ ] No new dead code, `_unused` vars, or deprecation shims.

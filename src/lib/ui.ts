@@ -4,7 +4,8 @@
  * one source of truth.
  */
 
-const MONO_LABEL =
+/** Small uppercase mono label (CTAs, dossier-row labels). */
+export const MONO_LABEL =
   'font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium';
 const INVERT_ON_HOVER =
   'hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)] transition-colors';

@@ -12,6 +12,7 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 export const EXTERNAL_LINKS = {
   bft: 'https://belarusfreetheatre.com',
   biennale: 'https://www.labiennale.org',
+  venueMap: 'https://maps.app.goo.gl/xgH8zh9giWpSDyK5A',
 } as const;
 
 const INSTAGRAM = 'https://www.instagram.com';

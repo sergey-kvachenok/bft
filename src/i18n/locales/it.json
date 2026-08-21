@@ -108,8 +108,19 @@
   "visit": {
     "eyebrow": "VISITA",
     "title": "TROVA LA PORTA.",
-    "body": "Aperto durante la Biennale di Venezia. Tutte le informazioni — orari, biglietti, mappa ufficiale del padiglione — sono pubblicate dalla Biennale.",
-    "cta": "Visita La Biennale"
+    "labels": {
+      "dates": "Date",
+      "hours": "Orari di apertura",
+      "location": "Luogo",
+      "address": "Indirizzo"
+    },
+    "dates": "9 maggio – 22 novembre 2026",
+    "hours": "Martedì – domenica, 11:00–19:00",
+    "closed": "Lunedì chiuso",
+    "location": "Chiesa di San Giovanni Evangelista",
+    "address": "S. Polo 2454, 30125 Venezia VE, Italia",
+    "cta": "Apri in Google Maps",
+    "ticketsNote": "Biglietti e informazioni complete per la visita sono pubblicati dalla Biennale di Venezia:"
   },
   "footer": {
     "title": "BELARUS FREE THEATRE.",
