@@ -1,23 +1,46 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Brutalist palette. Ground is cool graphite rather than black — a CRT
-     monitor housing, not a void — so raised surfaces and hard shadows have
-     something to read against. Paper is the inversion, red is the alarm. */
-  --color-ink: #14161a;
-  --color-ink-2: #1c1f24;
-  --color-ink-3: #262a30;
-  --color-ink-deep: #0b0c0e;
-  --color-paper: #f2efe6;
-  --color-paper-2: #d9d6cc;
-  --color-mute: #8f918c;
-  --color-rule: #343a42;
-  --color-signal: #e11515;
-  --color-signal-2: #8f0d0d;
+  /* Brutalist palette, named by role rather than by lightness: `ink` is the
+     page ground, `paper` is the text on it, `signal` is the alarm. The light
+     theme (below) swaps what ink and paper resolve to, so every component
+     keeps its single set of class names.
 
-  /* Extruded edge under a pressed key, and the highlight along its top. */
+     Dark is the default: ground is cool graphite rather than black — a CRT
+     monitor housing, not a void — so raised surfaces and hard shadows have
+     something to read against. */
+  /* The dark values, kept addressable on their own so that surfaces which are
+     dark in *both* themes — anything drawn over CCTV imagery — can pin them
+     back (see `.on-media`) instead of restating hexes. */
+  --color-media-ground: #14161a;
+  --color-media-ground-2: #1c1f24;
+  --color-media-ground-deep: #0b0c0e;
+  --color-media-fg: #f2efe6;
+  --color-media-fg-2: #d9d6cc;
+  --color-media-mute: #8f918c;
+  --color-media-rule: #343a42;
+  --color-media-signal: #e11515;
+
+  --color-ink: var(--color-media-ground);
+  --color-ink-2: var(--color-media-ground-2);
+  --color-ink-deep: var(--color-media-ground-deep);
+  --color-paper: var(--color-media-fg);
+  --color-paper-2: var(--color-media-fg-2);
+  --color-mute: var(--color-media-mute);
+  --color-rule: var(--color-media-rule);
+  --color-signal: var(--color-media-signal);
+  --color-signal-2: #8f0d0d;
+  /* Text over a signal-red surface. Red stays dark in both themes, so this
+     stays cream — unlike --color-paper, which flips. */
+  --color-on-signal: var(--color-media-fg);
+
+  /* Extruded edge under a pressed key, the highlight along its top, and the
+     cast shadow (lighter in the light theme, where a black cast reads dirty). */
   --key-lift: 4px;
   --key-highlight: rgb(255 255 255 / 0.16);
+  --key-shadow: rgb(0 0 0 / 0.7);
+  --key-shadow-hover: rgb(0 0 0 / 0.75);
+  --key-shadow-active: rgb(0 0 0 / 0.5);
 
   /* Type — heavy condensed display, sans body, mono for technical labels */
   --font-display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
@@ -44,6 +67,31 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Light theme — opt-in only, set by ThemeToggle (and by the inline script in
+     index.html before first paint). The system preference is deliberately
+     ignored: the exhibition's own register is the dark one, so light is a
+     reading affordance the visitor chooses, not a default we infer. */
+  :root[data-theme='light'] {
+    color-scheme: light;
+
+    --color-ink: #f4f1e8;
+    --color-ink-2: #eae6d9;
+    --color-ink-deep: #e7e2d3;
+    --color-paper: #14161a;
+    --color-paper-2: #3d424a;
+    --color-mute: #62655f;
+    --color-rule: #cfc9b6;
+    /* Pure #e11515 only reaches 4.2:1 on paper — below AA for the 11px mono
+       labels it is used for, so the light theme darkens it. */
+    --color-signal: #c00d0d;
+    --color-signal-2: #8a0808;
+
+    --key-highlight: rgb(255 255 255 / 0.5);
+    --key-shadow: rgb(20 22 26 / 0.28);
+    --key-shadow-hover: rgb(20 22 26 / 0.32);
+    --key-shadow-active: rgb(20 22 26 / 0.2);
+  }
+
   html {
     background: var(--color-ink);
     color: var(--color-paper);
@@ -59,7 +107,7 @@
 
   ::selection {
     background: var(--color-signal);
-    color: var(--color-paper);
+    color: var(--color-on-signal);
   }
 
   /* Video noise over the whole page — the grain a CCTV still carries. Fixed so
@@ -73,6 +121,13 @@
     opacity: 0.05;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Overlay darkens a light ground instead of lifting it, so grain over paper
+     multiplies — and lighter, since paper shows every speck. */
+  :root[data-theme='light'] body::after {
+    opacity: 0.035;
+    mix-blend-mode: multiply;
   }
 
   @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
@@ -123,10 +178,42 @@
       --color-mute: #c8c8c2;
       --color-rule: #6b6b66;
     }
+    :root[data-theme='light'] {
+      --color-mute: #3f423d;
+      --color-rule: #8d8877;
+    }
   }
 }
 
 @layer utilities {
+  /* Marks a subtree drawn over CCTV imagery — the hero, a photo tile, the
+     lightbox. The footage is dark in either theme, so the palette is pinned to
+     its dark values here and every component inside keeps working unchanged.
+     Custom properties inherit from the nearest ancestor that sets them, so
+     this beats the `[data-theme='light']` root without a specificity fight. */
+  .on-media {
+    --color-ink: var(--color-media-ground);
+    --color-ink-2: var(--color-media-ground-2);
+    --color-ink-deep: var(--color-media-ground-deep);
+    --color-paper: var(--color-media-fg);
+    --color-paper-2: var(--color-media-fg-2);
+    --color-mute: var(--color-media-mute);
+    --color-rule: var(--color-media-rule);
+    --color-signal: var(--color-media-signal);
+    --key-highlight: rgb(255 255 255 / 0.16);
+    --key-shadow: rgb(0 0 0 / 0.7);
+    --key-shadow-hover: rgb(0 0 0 / 0.75);
+    --key-shadow-active: rgb(0 0 0 / 0.5);
+  }
+
+  /* Show an element in one theme only. Lets a theme-dependent control render
+     identical markup on the server and the client — CSS picks the variant, so
+     hydration has nothing to reconcile. */
+  :root[data-theme='light'] .theme-dark-only,
+  :root:not([data-theme='light']) .theme-light-only {
+    display: none;
+  }
+
   .no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -183,7 +270,7 @@
   box-shadow:
     inset 0 1px 0 0 var(--key-highlight),
     0 var(--key-lift) 0 0 var(--key-edge),
-    0 calc(var(--key-lift) + 6px) 16px -6px rgb(0 0 0 / 0.7);
+    0 calc(var(--key-lift) + 6px) 16px -6px var(--key-shadow);
   transform: translateY(0);
   transition:
     transform 120ms var(--ease-editorial),
@@ -197,7 +284,7 @@
   box-shadow:
     inset 0 1px 0 0 var(--key-highlight),
     0 calc(var(--key-lift) + 2px) 0 0 var(--key-edge),
-    0 calc(var(--key-lift) + 10px) 20px -6px rgb(0 0 0 / 0.75);
+    0 calc(var(--key-lift) + 10px) 20px -6px var(--key-shadow-hover);
 }
 
 /* Sunk onto the edge — the shadow collapses to nothing. */
@@ -206,7 +293,7 @@
   box-shadow:
     inset 0 1px 0 0 var(--key-highlight),
     0 0 0 0 var(--key-edge),
-    0 1px 3px 0 rgb(0 0 0 / 0.5);
+    0 1px 3px 0 var(--key-shadow-active);
 }
 
 .btn-key:focus-visible {

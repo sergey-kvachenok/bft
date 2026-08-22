@@ -11,6 +11,7 @@ export function SurveillanceBand() {
     <div
       aria-hidden="true"
       className="
+        on-media
         fixed top-0 inset-x-0 z-[60]
         h-7 flex items-center
         bg-[var(--color-ink-deep)] border-b border-[var(--color-rule)]

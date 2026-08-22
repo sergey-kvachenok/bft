@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative min-h-[100dvh] overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]"
+      className="on-media relative min-h-[100dvh] overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]"
     >
       <CamFeedSlider className="absolute inset-0" />
 

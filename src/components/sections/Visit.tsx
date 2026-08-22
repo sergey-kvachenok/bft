@@ -6,7 +6,7 @@ import { EXTERNAL_LINKS, SECTION_IDS } from '../../lib/constants';
 import { LINK_BORDERED, MONO_LABEL } from '../../lib/ui';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
 
-const DETAIL_KEYS = ['dates', 'hours', 'location', 'address'] as const;
+const DETAIL_KEYS = ['dates', 'hours', 'admission', 'location', 'address'] as const;
 
 export function Visit() {
   const { t } = useTranslation();

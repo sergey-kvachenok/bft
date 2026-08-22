@@ -1,5 +1,5 @@
 /**
- * Source of truth for the seven participants of Official. Unofficial. Belarus.
+ * Source of truth for the six participants of Official. Unofficial. Belarus.
  * Photo files come from public/images/participants/<slug>.webp, generated
  * by scripts/optimize-images.mjs.
  *
@@ -11,8 +11,7 @@ export interface Participant {
   slug: string;
   name: string;
   meta: string;
-  /** Omitted for Pushkin (died in custody, 2023) — card renders SIGNAL LOST. */
-  photo?: {
+  photo: {
     src: string;
     credit: string;
   };
@@ -60,12 +59,5 @@ export const PARTICIPANTS: readonly Participant[] = [
     name: 'Rasmus Munk',
     meta: 'b. 1991, Randers',
     photo: photo('rasmus-munk', 'Copyright Mathias Eis'),
-  },
-  {
-    slug: 'ales-pushkin',
-    name: 'Ales Pushkin',
-    meta: '1965–2023, Bobruisk',
-    // No portrait — Pushkin died in custody in 2023. Card renders as an
-    // empty CCTV feed (signal lost) to honour the absence.
   },
 ] as const;

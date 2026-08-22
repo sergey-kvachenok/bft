@@ -91,7 +91,7 @@ export function CamGrid() {
                   aria-current={isLast ? 'true' : undefined}
                   style={{ width: TILE_SIZE, height: TILE_SIZE }}
                   className={cn(
-                    'cctv-feed relative overflow-hidden bg-[var(--color-ink-2)]',
+                    'on-media cctv-feed relative overflow-hidden bg-[var(--color-ink-2)]',
                     'cursor-crosshair scanlines outline-none',
                     'focus-visible:ring-2 focus-visible:ring-[var(--color-signal)]',
                     isLast &&
@@ -126,7 +126,7 @@ export function CamGrid() {
                       className="
                         absolute bottom-1 right-1 z-10
                         px-1 py-px
-                        bg-[var(--color-signal)] text-[var(--color-paper)]
+                        bg-[var(--color-signal)] text-[var(--color-on-signal)]
                         font-mono text-[8px] uppercase tracking-[0.15em] leading-none
                       "
                     >

@@ -10,13 +10,11 @@ interface DossierCardProps {
   eyebrow: string;
   /** Display-font title (name of a person or work). */
   title: string;
-  /** Photo to fill the CCTV feed. Omit to render the `fallback` instead. */
-  photo?: { src: string; alt: string; credit?: string };
-  /** Rendered inside the CCTV feed when `photo` is undefined. */
-  fallback?: ReactNode;
+  /** Photo to fill the CCTV feed. */
+  photo: { src: string; alt: string; credit?: string };
   /** Variant content below the title (meta + body, BE subtitle + dl, etc.). */
   children?: ReactNode;
-  /** When set with `photo`, the photo becomes a button that triggers this. */
+  /** When set, the photo becomes a button that triggers this. */
   onPhotoClick?: () => void;
 }
 
@@ -32,7 +30,6 @@ export function DossierCard({
   eyebrow,
   title,
   photo,
-  fallback,
   children,
   onPhotoClick,
 }: DossierCardProps) {
@@ -44,18 +41,14 @@ export function DossierCard({
       variants={fadeUp}
       className="flex flex-col"
     >
-      <div className="cctv-feed scanlines relative aspect-[4/5] w-full overflow-hidden bg-[var(--color-ink-2)] border border-[var(--color-rule)]">
-        {photo ? (
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : (
-          fallback
-        )}
+      <div className="on-media cctv-feed scanlines relative aspect-[4/5] w-full overflow-hidden bg-[var(--color-ink-2)] border border-[var(--color-rule)]">
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
         <span
           className="
@@ -73,7 +66,7 @@ export function DossierCard({
           <span>{tag}</span>
         </span>
 
-        {photo?.credit && (
+        {photo.credit && (
           <span
             aria-hidden="true"
             className="
@@ -87,7 +80,7 @@ export function DossierCard({
           </span>
         )}
 
-        {photo && onPhotoClick && (
+        {onPhotoClick && (
           <button
             type="button"
             onClick={onPhotoClick}

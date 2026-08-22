@@ -27,16 +27,20 @@
     "title": "BANNED AT HOME.\nSTAGED IN VENICE.",
     "body": "Belarus Free Theatre is the only theatre in Europe banned by its own government on political grounds. From exile, they bring Official. Unofficial. Belarus. to La Biennale di Venezia — a work made under surveillance, about surveillance.",
     "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia"
+    "linkBiennale": "La Biennale di Venezia",
+    "installation": {
+      "label": "SOUND INSTALLATION",
+      "p1": "In an adjacent private cemetery, an immersive sound installation of recorded testimonials by recently released Belarusian political prisoners permeates the space.",
+      "p2": "To protect their anonymity, all former prisoners' testimonials within the exhibition are voiced by leading actors: Gillian Anderson, Sir Stephen Fry, Jude Law (BFT Trustee), Dame Joanna Lumley, and Ruth Wilson."
+    }
   },
   "feeds": {
     "artwork": "Photograph from the Official. Unofficial. Belarus. exhibition by Belarus Free Theatre at La Biennale di Venezia"
   },
   "participants": {
     "eyebrow": "PARTICIPANTS",
-    "title": "SEVEN VOICES.\nONE COUNTRY.",
+    "title": "SIX VOICES.\nONE COUNTRY.",
     "intro": "Curator, painters, composer, playwright, chef. Artists who continue to work — in exile, in prison, in silence — to tell Belarus as it is, not as the state imagines it.",
-    "noPortrait": "NO PORTRAIT — DIED IN CUSTODY, 2023",
     "bios": {
       "daniella-kaliada": {
         "role": "Curator",
@@ -61,10 +65,6 @@
       "rasmus-munk": {
         "role": "Chef · Conceptual Artist",
         "body": "Danish chef and conceptual artist, co-owner and head chef of two-Michelin-starred Alchemist in Copenhagen — named one of the top five restaurants in the world. His immersive practice fuses gastronomy, performance, and activism, addressing climate, child labour, and microplastic pollution through food. For Venice he contributes Taste of Nothing, an edible installation drawn from the deprivation of Belarusian prisoners and the enforced silence of authoritarianism."
-      },
-      "ales-pushkin": {
-        "role": "Painter · Performance",
-        "body": "Belarusian painter, performance artist, and activist, remembered as one of the most courageous figures of the country's unofficial movement. Persecuted throughout his life by the Lukashenka regime, imprisoned repeatedly, he died in custody in 2023. A single work is shown in Venice — Saying Goodbye to Motherland, smuggled clandestinely out of Belarus — a personal farewell and a collective elegy for a country held captive by dictatorship."
       }
     }
   },
@@ -111,16 +111,18 @@
     "labels": {
       "dates": "Dates",
       "hours": "Opening hours",
+      "admission": "Admission",
       "location": "Location",
       "address": "Address"
     },
     "dates": "9 May – 22 November 2026",
     "hours": "Tuesday – Sunday, 11:00–19:00",
     "closed": "Monday closed",
+    "admission": "Free entry",
     "location": "Chiesa di San Giovanni Evangelista (Church of San Giovanni Evangelista)",
     "address": "S. Polo 2454, 30125 Venice VE, Italy",
     "cta": "Open in Google Maps",
-    "ticketsNote": "Tickets and full visiting information are published by La Biennale di Venezia:"
+    "ticketsNote": "Full visiting information is published by La Biennale di Venezia:"
   },
   "footer": {
     "title": "BELARUS FREE THEATRE.",
@@ -140,7 +142,9 @@
     "nextCam": "Next camera",
     "pauseFeed": "Pause camera feed",
     "playFeed": "Play camera feed",
-    "enlargePhoto": "Enlarge photo: {{name}}"
+    "enlargePhoto": "Enlarge photo: {{name}}",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme"
   },
   "camGrid": {
     "aria": "Multi-view camera wall",

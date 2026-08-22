@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 import { SECTION_IDS } from '../lib/constants';
 import { cn } from '../lib/cn';
 import { LINK_INLINE } from '../lib/ui';
@@ -51,7 +52,9 @@ export function Header() {
         'fixed top-7 inset-x-0 z-50 transition-all duration-300',
         scrolled
           ? 'bg-[var(--color-ink)]/85 backdrop-blur-md border-b border-[var(--color-rule)]'
-          : 'bg-transparent',
+          // Unscrolled, the header floats over the hero footage — dark in both
+          // themes, so its chrome keeps the dark palette there.
+          : 'on-media bg-transparent',
       )}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-12 h-12 flex items-center justify-between gap-3">
@@ -78,10 +81,12 @@ export function Header() {
           ))}
           <span className="h-3 w-px bg-[var(--color-rule)]" aria-hidden />
           <LanguageSwitcher />
+          <ThemeToggle />
         </nav>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-1">
           <LanguageSwitcher />
+          <ThemeToggle />
           <button
             ref={toggleRef}
             type="button"

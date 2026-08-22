@@ -27,16 +27,20 @@
     "title": "BANDITO IN PATRIA.\nIN SCENA A VENEZIA.",
     "body": "Belarus Free Theatre è l'unico teatro in Europa bandito dal proprio governo per ragioni politiche. Dall'esilio, porta Official. Unofficial. Belarus. alla Biennale di Venezia — un'opera fatta sotto sorveglianza, sulla sorveglianza.",
     "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia"
+    "linkBiennale": "La Biennale di Venezia",
+    "installation": {
+      "label": "INSTALLAZIONE SONORA",
+      "p1": "In un cimitero privato adiacente, un'installazione sonora immersiva di testimonianze registrate da prigionieri politici bielorussi recentemente liberati permea lo spazio.",
+      "p2": "Per proteggerne l'anonimato, tutte le testimonianze degli ex prigionieri all'interno della mostra sono recitate da attori di primo piano: Gillian Anderson, Sir Stephen Fry, Jude Law (trustee di BFT), Dame Joanna Lumley e Ruth Wilson."
+    }
   },
   "feeds": {
     "artwork": "Fotografia della mostra Official. Unofficial. Belarus. di Belarus Free Theatre alla Biennale di Venezia"
   },
   "participants": {
     "eyebrow": "PARTECIPANTI",
-    "title": "SETTE VOCI.\nUN PAESE.",
+    "title": "SEI VOCI.\nUN PAESE.",
     "intro": "Curatrice, pittori, compositrice, drammaturgo, chef. Artisti che continuano a lavorare — in esilio, in carcere, nel silenzio — per raccontare la Bielorussia com'è, non come la immagina lo Stato.",
-    "noPortrait": "NESSUN RITRATTO — MORTO IN CUSTODIA, 2023",
     "bios": {
       "daniella-kaliada": {
         "role": "Curatrice",
@@ -61,10 +65,6 @@
       "rasmus-munk": {
         "role": "Chef · Artista Concettuale",
         "body": "Chef e artista concettuale Danese, co-proprietario e chef principale di Alchemist a Copenaghen, premiato con due stelle Michelin e tra i primi cinque ristoranti al mondo. La sua pratica immersiva intreccia gastronomia, performance e attivismo, affrontando temi come il cambiamento climatico, il lavoro minorile e l'inquinamento da microplastiche. Per Venezia presenta Taste of Nothing, un'installazione commestibile che richiama la privazione subita dai prigionieri Bielorussi e il silenzio imposto dall'autoritarismo."
-      },
-      "ales-pushkin": {
-        "role": "Pittore · Performance",
-        "body": "Pittore, artista performativo e attivista Bielorusso, ricordato come una delle figure più coraggiose del movimento non ufficiale. Perseguitato per tutta la vita dal regime di Lukašėnka, incarcerato più volte, morì in custodia nel 2023. A Venezia viene esposta una sola opera — Saying Goodbye to Motherland, trafugata clandestinamente fuori dalla Bielorussia — un addio personale e un'elegia collettiva per un Paese tenuto prigioniero dalla dittatura."
       }
     }
   },
@@ -111,16 +111,18 @@
     "labels": {
       "dates": "Date",
       "hours": "Orari di apertura",
+      "admission": "Ingresso",
       "location": "Luogo",
       "address": "Indirizzo"
     },
     "dates": "9 maggio – 22 novembre 2026",
     "hours": "Martedì – domenica, 11:00–19:00",
     "closed": "Lunedì chiuso",
+    "admission": "Gratuito",
     "location": "Chiesa di San Giovanni Evangelista",
     "address": "S. Polo 2454, 30125 Venezia VE, Italia",
     "cta": "Apri in Google Maps",
-    "ticketsNote": "Biglietti e informazioni complete per la visita sono pubblicati dalla Biennale di Venezia:"
+    "ticketsNote": "Le informazioni complete per la visita sono pubblicate dalla Biennale di Venezia:"
   },
   "footer": {
     "title": "BELARUS FREE THEATRE.",
@@ -140,7 +142,9 @@
     "nextCam": "Telecamera successiva",
     "pauseFeed": "Metti in pausa il feed",
     "playFeed": "Riproduci il feed",
-    "enlargePhoto": "Ingrandisci foto: {{name}}"
+    "enlargePhoto": "Ingrandisci foto: {{name}}",
+    "themeLight": "Passa al tema chiaro",
+    "themeDark": "Passa al tema scuro"
   },
   "camGrid": {
     "aria": "Parete multi-vista delle telecamere",

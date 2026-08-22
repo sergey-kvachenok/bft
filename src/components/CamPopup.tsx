@@ -42,14 +42,14 @@ const NAV_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
   bg-[var(--color-ink-2)] text-[var(--color-paper)] text-2xl
   border border-[var(--color-paper)]/25
   [--key-edge:var(--color-ink-deep)]
-  hover:bg-[var(--color-signal)]
-  active:bg-[var(--color-signal)]
+  hover:bg-[var(--color-signal)] hover:text-[var(--color-on-signal)]
+  active:bg-[var(--color-signal)] active:text-[var(--color-on-signal)]
 `;
 
 const CLOSE_BUTTON_CLASS = `${POPUP_BUTTON_BASE}
   top-3 right-3 sm:-top-3 sm:-right-3
   w-11 h-11 text-xl
-  bg-[var(--color-signal)] text-[var(--color-paper)]
+  bg-[var(--color-signal)] text-[var(--color-on-signal)]
   [--key-edge:var(--color-signal-2)]
   hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]
 `;
@@ -164,7 +164,7 @@ export function CamPopup({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center sm:p-10"
+          className="on-media fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center sm:p-10"
           onClick={onClose}
           role="dialog"
           aria-modal="true"

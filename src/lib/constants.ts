@@ -29,4 +29,6 @@ export const ASSETS = {
 
 export const STORAGE_KEYS = {
   lastViewedArtwork: 'bft.lastViewedArtwork',
+  /** Duplicated as a literal in the pre-paint script in `index.html`. */
+  theme: 'bft.theme',
 } as const;
