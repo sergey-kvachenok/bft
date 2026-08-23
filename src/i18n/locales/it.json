@@ -27,12 +27,7 @@
     "title": "BANDITO IN PATRIA.\nIN SCENA A VENEZIA.",
     "body": "Belarus Free Theatre è l'unico teatro in Europa bandito dal proprio governo per ragioni politiche. Dall'esilio, porta Official. Unofficial. Belarus. alla Biennale di Venezia — un'opera fatta sotto sorveglianza, sulla sorveglianza.",
     "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia",
-    "installation": {
-      "label": "INSTALLAZIONE SONORA",
-      "p1": "In un cimitero privato adiacente, un'installazione sonora immersiva di testimonianze registrate da prigionieri politici bielorussi recentemente liberati permea lo spazio.",
-      "p2": "Per proteggerne l'anonimato, tutte le testimonianze degli ex prigionieri all'interno della mostra sono recitate da attori di primo piano: Gillian Anderson, Sir Stephen Fry, Jude Law (trustee di BFT), Dame Joanna Lumley e Ruth Wilson."
-    }
+    "linkBiennale": "La Biennale di Venezia"
   },
   "feeds": {
     "artwork": "Fotografia della mostra Official. Unofficial. Belarus. di Belarus Free Theatre alla Biennale di Venezia"
@@ -71,7 +66,12 @@
   "works": {
     "eyebrow": "OPERE",
     "title": "DICIOTTO OPERE.\nUNA MOSTRA.",
-    "intro": "Pittura, scultura, suono, profumo, gusto. Diciotto opere realizzate nel 2026 per la mostra alla Chiesa di San Giovanni Evangelista — dal 9 maggio al 22 novembre."
+    "intro": "Pittura, scultura, suono, profumo, gusto. Diciotto opere realizzate nel 2026 per la mostra alla Chiesa di San Giovanni Evangelista — dal 9 maggio al 22 novembre.",
+    "installation": {
+      "label": "INSTALLAZIONE SONORA",
+      "p1": "In un cimitero privato adiacente, un'installazione sonora immersiva di testimonianze registrate da prigionieri politici bielorussi recentemente liberati permea lo spazio.",
+      "p2": "Per proteggerne l'anonimato, tutte le testimonianze degli ex prigionieri all'interno della mostra sono recitate da attori di primo piano: Gillian Anderson, Sir Stephen Fry, Jude Law (trustee di BFT), Dame Joanna Lumley e Ruth Wilson."
+    }
   },
   "press": {
     "eyebrow": "STAMPA",

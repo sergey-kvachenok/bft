@@ -27,12 +27,7 @@
     "title": "BANNED AT HOME.\nSTAGED IN VENICE.",
     "body": "Belarus Free Theatre is the only theatre in Europe banned by its own government on political grounds. From exile, they bring Official. Unofficial. Belarus. to La Biennale di Venezia — a work made under surveillance, about surveillance.",
     "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia",
-    "installation": {
-      "label": "SOUND INSTALLATION",
-      "p1": "In an adjacent private cemetery, an immersive sound installation of recorded testimonials by recently released Belarusian political prisoners permeates the space.",
-      "p2": "To protect their anonymity, all former prisoners' testimonials within the exhibition are voiced by leading actors: Gillian Anderson, Sir Stephen Fry, Jude Law (BFT Trustee), Dame Joanna Lumley, and Ruth Wilson."
-    }
+    "linkBiennale": "La Biennale di Venezia"
   },
   "feeds": {
     "artwork": "Photograph from the Official. Unofficial. Belarus. exhibition by Belarus Free Theatre at La Biennale di Venezia"
@@ -71,7 +66,12 @@
   "works": {
     "eyebrow": "WORKS",
     "title": "EIGHTEEN WORKS.\nONE EXHIBITION.",
-    "intro": "Paintings, sculpture, sound, scent, taste. Eighteen works made in 2026 for the show at La Chiesa di San Giovanni Evangelista — 9 May to 22 November."
+    "intro": "Paintings, sculpture, sound, scent, taste. Eighteen works made in 2026 for the show at La Chiesa di San Giovanni Evangelista — 9 May to 22 November.",
+    "installation": {
+      "label": "SOUND INSTALLATION",
+      "p1": "In an adjacent private cemetery, an immersive sound installation of recorded testimonials by recently released Belarusian political prisoners permeates the space.",
+      "p2": "To protect their anonymity, all former prisoners' testimonials within the exhibition are voiced by leading actors: Gillian Anderson, Sir Stephen Fry, Jude Law (BFT Trustee), Dame Joanna Lumley, and Ruth Wilson."
+    }
   },
   "press": {
     "eyebrow": "PRESS",

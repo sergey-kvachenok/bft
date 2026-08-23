@@ -8,6 +8,7 @@ import { SECTION_IDS } from '../../lib/constants';
 import { WORKS } from '../../lib/worksList';
 import { pad } from '../../lib/format';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
+import { MONO_LABEL } from '../../lib/ui';
 
 // Every photo in this set is by the same photographer, so the credit is
 // constant across cards — kept local because it lives next to its only use.
@@ -81,6 +82,22 @@ export function Works() {
           </DossierCard>
         ))}
       </ol>
+
+      <motion.div
+        {...whileInViewProps}
+        variants={fadeUp}
+        className="mt-16 sm:mt-20 max-w-3xl border-l-2 border-[var(--color-signal)] bg-[var(--color-ink-2)] p-6 sm:p-8 space-y-5"
+      >
+        <p className={`${MONO_LABEL} text-[var(--color-signal)]`}>
+          {t('works.installation.label')}
+        </p>
+        <p className="text-base sm:text-lg leading-relaxed text-[var(--color-paper)]">
+          {t('works.installation.p1')}
+        </p>
+        <p className="text-base sm:text-lg leading-relaxed text-[var(--color-paper)]">
+          {t('works.installation.p2')}
+        </p>
+      </motion.div>
 
       <CamPopup
         images={WORK_POPUP_IMAGES}
