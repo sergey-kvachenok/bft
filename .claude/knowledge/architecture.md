@@ -13,7 +13,8 @@ It ships as **prerendered static HTML, one file per locale** (`/`, `/it/`, `/be/
 ```
 src/
   App.tsx                       — section composition (one section per imported component)
-  main.tsx                      — hydrateRoot on prerendered HTML, createRoot in dev
+  main.tsx                      — hydrateRoot on prerendered HTML, createRoot in dev;
+                                  also mounts <Analytics> (see Analytics)
   entry-server.tsx              — build-time render entry; must mirror main.tsx's tree
   styles.css                    — Tailwind theme tokens + CCTV CSS (scanlines, grain, .btn-key)
   components/
@@ -243,6 +244,15 @@ The top band reads "CAM 01–55 · 055" derived from the total artwork count via
   - It deliberately sets **no `position`**. Living outside `@layer`, a `position` here would beat Tailwind's own `absolute`.
 - `cn()` is a plain join with **no `tailwind-merge`**, so conflicting utilities resolve by stylesheet order, not by call order. Don't try to override a class from `lib/ui.ts` by appending another; add a variant there instead.
 - CCTV media is desaturated then given a cold cast back (`sepia` + `hue-rotate`), so stills read as monitor blue-green. A fixed grain layer sits over the page at 5% overlay, disabled under `prefers-contrast: more`.
+
+## Analytics
+
+Vercel Web Analytics (`@vercel/analytics`), chosen over Google Analytics because the only question asked of it is *how many people visited*. It is cookieless, so an EU-facing site needs no consent banner — and no banner means no consent-declined visitors missing from the count.
+
+- **`<Analytics>` is mounted in `main.tsx`, not `App.tsx`.** `entry-server.tsx` must mirror `App`'s tree exactly; keeping the component out of `App` means the two entries cannot drift. It renders no markup — the script is injected client-side — so hydration is unaffected either way.
+- **`beforeSend` drops every event whose hostname is not the production host**, read from `SITE.url`. Preview deployments, `*.vercel.app` aliases and `npm run dev` all serve the same bundle; without the filter our own deploys would show up as visitors.
+- **Collection is off until Web Analytics is enabled** in the Vercel dashboard (project → Analytics) and the project redeployed. The package alone does nothing.
+- Retention is plan-bound: 1 month on Hobby.
 
 ## Deploy
 

@@ -2,7 +2,7 @@
 
 > **Project**: Official. Unofficial. Belarus. — Belarus Free Theatre at La Biennale di Venezia.
 > **What**: Mobile-first QR landing page / companion guide. Prerendered static HTML, one file per locale, hydrated by React. Not a PWA.
-> **Stack**: React 19 + Vite 6 + TypeScript 5 + Tailwind 4 + motion + i18next.
+> **Stack**: React 19 + Vite 6 + TypeScript 5 + Tailwind 4 + motion + i18next + @vercel/analytics.
 > **Working directory**: repo root.
 
 This map exists so any future agent can get oriented in minutes. Read `architecture.md` for **what the code is**; read `conventions.md` for **how to write code in it**.
@@ -20,6 +20,7 @@ This map exists so any future agent can get oriented in minutes. Read `architect
 | Anything that must survive prerender/hydration            | `architecture.md` → Prerendering and hydration|
 | URLs, language switching, `hreflang`                      | `architecture.md` → Locales and routing       |
 | Metadata, canonical, sitemap, share image                 | `architecture.md` → SEO                       |
+| Visitor counts, tracking, why not Google Analytics        | `architecture.md` → Analytics                 |
 | Colors, buttons, the `.btn-key` footguns                  | `architecture.md` → Styling notes             |
 | Writing or refactoring any code at all                    | `conventions.md` (DRY, comments, a11y, etc.)  |
 | Component patterns, Tailwind reuse, motion conventions    | `conventions.md` → React + Styling            |
@@ -78,5 +79,6 @@ npm run qr               # regenerate the QR landing image
 
 ## Outstanding
 
-- `SITE.url` points at `https://unofficial-official.com`, set before the DNS cutover. Until that domain is attached the canonical names a host that does not resolve.
+- `SITE.url` points at `https://unofficial-official.com`, set before the DNS cutover. Until that domain is attached the canonical names a host that does not resolve. The analytics host filter reads the same value, so nothing is counted until the site is served from it.
+- Web Analytics still has to be switched on in the Vercel dashboard; the shipped package collects nothing on its own.
 - An Italian visitor landing on `/` gets English. See `architecture.md` → Locales and routing.
