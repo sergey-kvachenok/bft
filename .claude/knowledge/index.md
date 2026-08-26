@@ -37,7 +37,7 @@ This map exists so any future agent can get oriented in minutes. Read `architect
 - `src/i18n/locales/{en,be,it}.json` — every user-facing string. No literal strings in components.
 - `vite.config.ts` — the `seo()` plugin (`%SITE_URL%` substitution, `robots.txt`, `sitemap.xml`) and client-only `manualChunks`.
 - `scripts/prerender.mjs` — writes the three per-locale HTML files. Runs last in `npm run build`.
-- `scripts/optimize-images.mjs` — JPG→WebP pipeline. Run with `npm run optimize-images`.
+- `scripts/optimize-images.mjs` — JPG/PNG→WebP pipeline, one preset per folder in its `SETS` table. Run with `npm run optimize-images`.
 
 ---
 
@@ -63,7 +63,7 @@ npm run typecheck        # tsc -b --noEmit
 npm run preview          # serve dist/ — the only way to see the prerendered output
 npm run prerender        # re-run just the prerender step against an existing dist/
 npm run og-image         # regenerate og-image.jpg + apple-touch-icon.png
-npm run optimize-images  # regenerate WebPs from JPGs in public/images/artworks/
+npm run optimize-images  # regenerate WebPs from JPG/PNG originals in public/images/{artworks,participants,works}/
 npm run qr               # regenerate the QR landing image
 ```
 
@@ -72,9 +72,9 @@ npm run qr               # regenerate the QR landing image
 ## Last-known image footprint
 
 - Source artworks: 55 photos at `public/images/artworks/<id>.webp` (1600w) + `<id>-thumb.webp` (400w).
-- Plus `participants/` (7) and `works/` (18).
+- Plus `participants/` (6, 1200w) and `works/` (18, 1000w).
 - Pre-optimization JPGs were 406MB total; current WebP set is ~13MB.
-- Prerendered HTML is ~133–139KB per locale — the body markup is inlined, which is the point.
+- Prerendered HTML is ~130–136KB per locale — the body markup is inlined, which is the point.
 
 ## Outstanding
 

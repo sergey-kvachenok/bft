@@ -26,10 +26,11 @@ src/
     ui/
       CamFrame.tsx              — chrome around any "monitor view" (cam id, timestamp, REC)
       DossierCard.tsx           — photo-tile + title card, shared by Participants and Works
+                                  (photo is `{ src, alt }` — no credit overlay, removed by request)
       Section.tsx, SectionHeader.tsx, CtaButton.tsx, SignalBars.tsx, InstagramIcon.tsx
   lib/
     artworks.ts                 — single source of truth for the CCTV photos
-    participants.ts             — the seven participants (bios live in i18n)
+    participants.ts             — the six participants (bios live in i18n)
     worksList.ts                — the eighteen catalogued works
     pressList.ts                — press coverage (summaries live in i18n)
     site.ts                     — SITE.url + EXHIBITION facts. The ONLY place the origin is written
@@ -51,7 +52,7 @@ public/
   images/{artworks,participants,works}/  — optimized WebPs
   og-image.jpg, apple-touch-icon.png, icon.svg, press-release.docx
 scripts/
-  optimize-images.mjs           — JPG→WebP pipeline (sharp)
+  optimize-images.mjs           — JPG/PNG→WebP pipeline (sharp)
   generate-og-image.mjs         — renders og-image.jpg + apple-touch-icon.png
   prerender.mjs                 — writes the three per-locale HTML files
   generate-qr.mjs               — QR code generator
@@ -179,16 +180,22 @@ The **URL is the single source of truth** for language — there is no `localSto
 
 ## Asset pipeline
 
-Run `npm run optimize-images` to regenerate WebPs from JPGs in `public/images/artworks/`. The script (`scripts/optimize-images.mjs`):
+Run `npm run optimize-images` to regenerate WebPs from the JPG/PNG originals sitting in `public/images/<set>/`. The script (`scripts/optimize-images.mjs`) walks a `SETS` table — one entry per folder, each with its own width/quality preset:
 
-1. For each `*.jpg` it emits two WebPs in the same folder:
-   - `<name>.webp` — 1600w, q78, `effort: 5`.
-   - `<name>-thumb.webp` — 400w, q75.
+| Set | Full | Thumb | Why |
+| --- | --- | --- | --- |
+| `artworks` | 1600w, q78 | 400w, q75 | hero slider + grid tiles |
+| `participants` | 1200w, q82 | — | portrait cards only; no thumb consumer |
+| `works` | 1000w, q80 | — | catalogue tiles render ~500px wide |
+
+1. For each source it emits `<name>.webp`, plus `<name>-thumb.webp` when the set's `thumbWidth > 0`.
 2. Sanitizes basenames: spaces/parens → `_`. So `DSC01581 (2).jpg` becomes `DSC01581__2_.webp`.
-3. Honors EXIF orientation (`sharp().rotate()`).
+3. Honors EXIF orientation (`sharp().rotate()`) — needed for the participant portraits, several of which arrive rotated.
 4. Skips files whose WebPs already exist unless `--force`.
 
-After running, originals can be deleted (`rm public/images/artworks/*.jpg`). The `IDS` list in `artworks.ts` must be updated to match the WebP basenames.
+Adding a set means adding a row to `SETS`, not writing new sharp code.
+
+After running, artwork originals can be deleted (`rm public/images/artworks/*.jpg`). The `IDS` list in `artworks.ts` must be updated to match the WebP basenames. Participant originals are currently **kept tracked** (~44MB) — only the WebP is served, so gitignoring them is an open question, not a settled convention.
 
 **Typical compression**: ~3% of original size. The 55 source photos were 406MB → 13MB after pipeline.
 
@@ -222,7 +229,7 @@ The top band reads "CAM 01–55 · 055" derived from the total artwork count via
 
 | File | Drives | Prose in i18n | Photos |
 | --- | --- | --- | --- |
-| `participants.ts` | Participants (7) | `participants.bios.<slug>.{role,body}` | `/images/participants/<slug>.webp` |
+| `participants.ts` | Participants (6) | `participants.bios.<slug>.{role,body}` | `/images/participants/<slug>.webp` |
 | `worksList.ts` | Works (18) | — titles/medium live in the file | `/images/works/<slug>.webp` |
 | `pressList.ts` | Press (6) | `press.items.<slug>.summary` | — |
 
