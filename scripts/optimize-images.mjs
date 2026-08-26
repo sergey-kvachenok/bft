@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Converts every JPG under /public/images/<set>/ into WebP:
+ * Converts every JPG/PNG under /public/images/<set>/ into WebP:
  *   <name>.webp       — full-width WebP  (hero slider, popup, portrait card)
  *   <name>-thumb.webp — thumb WebP       (grid tiles; set thumbWidth=0 to skip)
  *
  * Sets are configured below. Skips files that already have an up-to-date
- * WebP; pass --force to re-process. JPG originals stay in place.
+ * WebP; pass --force to re-process. Originals stay in place.
  */
 import sharp from 'sharp';
 import { readdir, stat } from 'node:fs/promises';
@@ -39,10 +39,10 @@ for (const set of SETS) {
   }
 
   const files = (await readdir(srcDir))
-    .filter((f) => /\.jpe?g$/i.test(f))
+    .filter((f) => /\.(jpe?g|png)$/i.test(f))
     .sort();
 
-  console.log(`\n[${set.dir}] Found ${files.length} JPG(s) in ${srcDir}`);
+  console.log(`\n[${set.dir}] Found ${files.length} source image(s) in ${srcDir}`);
 
   let processed = 0;
   let skipped = 0;
