@@ -11,53 +11,47 @@ export interface Participant {
   slug: string;
   name: string;
   meta: string;
-  photo: {
-    src: string;
-    credit: string;
-  };
+  photo: string;
 }
 
 const DIR = '/images/participants';
-const photo = (slug: string, credit: string) => ({
-  src: `${DIR}/${slug}.webp`,
-  credit,
-});
+const photo = (slug: string) => `${DIR}/${slug}.webp`;
 
 export const PARTICIPANTS: readonly Participant[] = [
   {
     slug: 'daniella-kaliada',
     name: 'Daniella Alexandra Kaliada',
     meta: 'b. 2000, Minsk',
-    photo: photo('daniella-kaliada', 'Photo Francesco Barasciutti'),
+    photo: photo('daniella-kaliada'),
   },
   {
     slug: 'nicolai-khalezin',
     name: 'Nicolai Khalezin MBE',
     meta: 'b. 1964, Minsk',
-    photo: photo('nicolai-khalezin', 'Photo Anna Goltsberg, 2023'),
+    photo: photo('nicolai-khalezin'),
   },
   {
     slug: 'sergey-grinevich',
     name: 'Sergey Grinevich',
     meta: 'b. 1960, Grodno',
-    photo: photo('sergey-grinevich', 'Photo Francesco Barasciutti'),
+    photo: photo('sergey-grinevich'),
   },
   {
     slug: 'vladimir-tsesler',
     name: 'Vladimir Tsesler',
     meta: 'b. 1951, Minsk',
-    photo: photo('vladimir-tsesler', 'Photo KANAPLEV+LEIDIK, 2025'),
+    photo: photo('vladimir-tsesler'),
   },
   {
     slug: 'volha-podgaiskaya',
     name: 'Volha Podgaiskaya',
     meta: 'b. 1979, Minsk',
-    photo: photo('volha-podgaiskaya', 'Photo Francesco Barasciutti'),
+    photo: photo('volha-podgaiskaya'),
   },
   {
     slug: 'rasmus-munk',
     name: 'Rasmus Munk',
     meta: 'b. 1991, Randers',
-    photo: photo('rasmus-munk', 'Copyright Mathias Eis'),
+    photo: photo('rasmus-munk'),
   },
 ] as const;

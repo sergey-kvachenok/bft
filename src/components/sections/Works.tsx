@@ -10,10 +10,6 @@ import { pad } from '../../lib/format';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
 import { MONO_LABEL } from '../../lib/ui';
 
-// Every photo in this set is by the same photographer, so the credit is
-// constant across cards — kept local because it lives next to its only use.
-const PHOTO_CREDIT = '© Belarus Free Theatre. Photo Dasha Trofimova';
-
 const workTag = (i: number) => `WORK ${pad(i + 1, 2)}`;
 const workSrc = (slug: string) => `/images/works/${slug}.webp`;
 const workAlt = (w: (typeof WORKS)[number]) =>
@@ -53,11 +49,7 @@ export function Works() {
             tag={workTag(i)}
             eyebrow={w.artist}
             title={w.titleEn}
-            photo={{
-              src: workSrc(w.slug),
-              alt: workAlt(w),
-              credit: PHOTO_CREDIT,
-            }}
+            photo={{ src: workSrc(w.slug), alt: workAlt(w) }}
             onPhotoClick={() => setActiveIndex(i)}
           >
             <p

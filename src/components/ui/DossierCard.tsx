@@ -11,7 +11,7 @@ interface DossierCardProps {
   /** Display-font title (name of a person or work). */
   title: string;
   /** Photo to fill the CCTV feed. */
-  photo: { src: string; alt: string; credit?: string };
+  photo: { src: string; alt: string };
   /** Variant content below the title (meta + body, BE subtitle + dl, etc.). */
   children?: ReactNode;
   /** When set, the photo becomes a button that triggers this. */
@@ -65,20 +65,6 @@ export function DossierCard({
           />
           <span>{tag}</span>
         </span>
-
-        {photo.credit && (
-          <span
-            aria-hidden="true"
-            className="
-              absolute bottom-2 right-2 z-10
-              font-mono text-[9px] uppercase tracking-[0.18em]
-              text-[var(--color-paper-2)]
-              drop-shadow-[0_1px_2px_rgba(0,0,0,1)]
-            "
-          >
-            {photo.credit}
-          </span>
-        )}
 
         {onPhotoClick && (
           <button

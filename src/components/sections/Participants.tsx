@@ -13,7 +13,7 @@ const dossierTag = (i: number) => `DOSSIER ${pad(i + 1, 2)}`;
 
 const PARTICIPANT_POPUP_IMAGES: readonly PopupImage[] = PARTICIPANTS.map(
   (p, i) => ({
-    src: p.photo.src,
+    src: p.photo,
     alt: p.name,
     camId: dossierTag(i),
     location: p.name,
@@ -47,7 +47,7 @@ export function Participants() {
             tag={dossierTag(i)}
             eyebrow={t(`participants.bios.${p.slug}.role`)}
             title={p.name}
-            photo={{ src: p.photo.src, alt: p.name, credit: p.photo.credit }}
+            photo={{ src: p.photo, alt: p.name }}
             onPhotoClick={() => setActiveIndex(i)}
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-mute)] mb-5">
