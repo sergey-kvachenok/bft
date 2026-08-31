@@ -7,6 +7,7 @@ import { About } from './components/sections/About';
 import { Participants } from './components/sections/Participants';
 import { Works } from './components/sections/Works';
 import { Press } from './components/sections/Press';
+import { Faq } from './components/sections/Faq';
 import { Visit } from './components/sections/Visit';
 import { Footer } from './components/Footer';
 import { useHashFocus } from './lib/useHashFocus';
@@ -38,6 +39,7 @@ export default function App() {
         <Participants />
         <Works />
         <Press />
+        <Faq />
         <Visit />
       </main>
       <Footer />

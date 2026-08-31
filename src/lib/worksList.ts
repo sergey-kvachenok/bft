@@ -65,7 +65,7 @@ export const WORKS: readonly ArtWork[] = [
   },
   {
     slug: '16-sounds-of-silence',
-    artist: 'Volha Podgaiskaya',
+    artist: 'Olga Podgayskaya',
     titleEn: 'Sounds of Silence',
     titleBe: 'Гукі Цішыні',
     year: '2026',
@@ -73,7 +73,7 @@ export const WORKS: readonly ArtWork[] = [
   },
   {
     slug: '14-smell-of-dictatorship',
-    artist: 'Ol.factory with Daniella Kaliada and Natalia Kaliada',
+    artist: 'ol.factory with Daniella Kaliada and Natalia Kaliada',
     titleEn: 'The Smell of Dictatorship',
     titleBe: 'Пах Дыктатуры',
     year: '2026',

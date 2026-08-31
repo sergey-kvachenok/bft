@@ -9,6 +9,7 @@
     "participants": "PARTICIPANTS",
     "works": "WORKS",
     "press": "PRESS",
+    "faq": "Q&A",
     "visit": "VISIT"
   },
   "surveillance": {
@@ -35,15 +36,19 @@
   "participants": {
     "eyebrow": "PARTICIPANTS",
     "title": "A PAVILION WITHOUT BORDERS",
-    "intro": "Curator, painters, composer, playwright, chef. And several who chose not to be named. Working across countries, disciplines and circumstances, brought together to construct a portrait of Belarus beyond the state's control.",
+    "intro": "Curators, painters, composer, playwright, chef, scent studio. And several who chose not to be named. Working across countries, disciplines and circumstances, brought together to construct a portrait of Belarus beyond the state's control.",
     "bios": {
       "daniella-kaliada": {
         "role": "Curator",
         "body": "Curator of the artist-led Belarusian exhibition at the 61st Venice Biennale. Born in Minsk, exiled to England aged ten, she has worked with Belarus Free Theatre for over fifteen years on productions including the Olivier-nominated King Stakh's Wild Hunt and the award-winning Dogs of Europe. Her independent practice, including Surveillance Crucifixion, explores memory, exile, and the reclamation of suppressed narratives. She studied at UCL and the Courtauld Institute of Art, specialising in Global Conceptualism."
       },
+      "natalia-kaliada": {
+        "role": "Co-curator · Director",
+        "body": "Co-curator of the artist-led Belarusian exhibition at the 61st Venice Biennale. Co-founding Artistic Director of Belarus Free Theatre, she has led “one of the bravest and most inspired underground troupes on the planet” (The New York Times) for two decades, shaping its expressionistic, image-driven visual language. She received an Olivier Award nomination for King Stakh's Wild Hunt, BFT's first opera, and an MBE for Services to Theatre in 2023. In 2020 she founded the Women 4 Women Alliance, launched with Hillary Clinton and Madeleine Albright, to amplify the women resisting the dictatorship in Belarus."
+      },
       "nicolai-khalezin": {
-        "role": "Playwright · Curator",
-        "body": "Belarusian playwright, curator, and cultural strategist whose work sits at the intersection of art, politics, and civil resistance. Founder of the only independent art gallery in 1990s Minsk — forcibly closed by the regime — he co-founded Belarus Free Theatre in 2005, staging performances in apartments, warehouses, and forest clearings under threat of arrest. Now in exile, he continues to direct the company internationally while keeping its work anchored to audiences inside Belarus."
+        "role": "Playwright",
+        "body": "Belarusian playwright and cultural strategist whose work sits at the intersection of art, politics, and civil resistance. Founder of the only independent art gallery in 1990s Minsk — forcibly closed by the regime — he co-founded Belarus Free Theatre in 2005, staging performances in apartments, warehouses, and forest clearings under threat of arrest. Now in exile, he continues to direct the company internationally while keeping its work anchored to audiences inside Belarus."
       },
       "sergey-grinevich": {
         "role": "Painter",
@@ -53,13 +58,17 @@
         "role": "Conceptual Artist",
         "body": "One of the most uncompromising figures in Belarusian art, fusing conceptual rigour, political acuity, and biting irony across graphic art, sculpture, and installation. With Sergei Voichenko he formed the legendary Perestroika-era duo Tsesler & Voichenko, defining the visual language of late-Soviet dissent. His later sculptures function as quiet, ethical monuments to resistance — insisting on ambiguity, memory, and critical thought in environments built to eliminate all three."
       },
-      "volha-podgaiskaya": {
+      "olga-podgayskaya": {
         "role": "Composer · Organist",
         "body": "Composer and organist bridging sacred tradition and contemporary experimentation. Trained at the Belarusian State Academy of Music and the Haute École de Musique in Geneva, she juxtaposes liturgical sound with experimental form. For Venice she creates a divided soundscape: in one space, the historic organ sounds new compositions on the silence; in another, overlapping recordings of interrogations evoke the silence enforced by political persecution."
       },
       "rasmus-munk": {
         "role": "Chef · Conceptual Artist",
         "body": "Danish chef and conceptual artist, co-owner and head chef of two-Michelin-starred Alchemist in Copenhagen — named one of the top five restaurants in the world. His immersive practice fuses gastronomy, performance, and activism, addressing climate, child labour, and microplastic pollution through food. For Venice he contributes Taste of Nothing, an edible installation drawn from the deprivation of Belarusian prisoners and the enforced silence of authoritarianism."
+      },
+      "ol-factory": {
+        "role": "Scent Studio",
+        "body": "Ukrainian scent studio built on the idea that smell communicates what images and words cannot. Founded in Kyiv by Khrystyna Kurhanska, it works across bespoke fragrance development, aroma branding and commercial scent design, treating an aroma as a strategic extension of identity rather than decoration. For Venice the studio made The Smell of Dictatorship with Daniella Kaliada and Natalia Kaliada — the atmosphere of confinement rendered as a nebulised concentrate."
       }
     }
   },
@@ -105,6 +114,125 @@
       }
     }
   },
+  "faq": {
+    "eyebrow": "Q&A",
+    "title": "THE QUESTIONS\nWE GET ASKED.",
+    "intro": "Background on Belarus Free Theatre, the curators, and how this exhibition was made — for press, and for anyone who wants the longer answer.",
+    "items": {
+      "bft": {
+        "q": "Who is Belarus Free Theatre?",
+        "a": [
+          "Belarus Free Theatre (BFT) is a world-class non-profit with a 20-year track record of award-winning stage productions, documentary films, exhibitions, artist education programmes and global campaigns. Described by The New York Times as “one of the bravest and most inspired underground troupes on the planet”, its co-founding Artistic Directors, Natalia Kaliada and Nicolai Khalezin, were awarded the MBE for Services to Theatre in the 2023 King's Birthday Honours.",
+          "Critically and publicly acclaimed for its provocative and breathtakingly physical theatre — more than 50 stage productions performed in over 40 countries — BFT was nominated for an Olivier Award in 2024 for the opera King Stakh's Wild Hunt, which received its world premiere at the Barbican Theatre in London.",
+          "The ability to innovate and transform is one of the company's defining characteristics. On theatre stages, in art galleries and football stadiums, in schools and on screens big and small, it keeps a signature born from a visceral, personal understanding of the price of freedom and our responsibility to protect it. BFT Life Patrons include Sir Tom Stoppard, Harold Pinter and President Václav Havel."
+        ],
+        "lists": [
+          {
+            "label": "Theatre",
+            "items": [
+              "Member of the Order of the British Empire (MBE) for Services to Theatre — 2023",
+              "Olivier Award nomination, Outstanding Achievement in Opera, King Stakh's Wild Hunt — 2024",
+              "OffWestEnd Award, KS6: Small Forward — 2026",
+              "The Stage International Award — 2021",
+              "Drama Desk nomination, Being Harold Pinter — 2011",
+              "OBIE Award, Discover Love / Being Harold Pinter / Zone of Silence — 2011"
+            ]
+          },
+          {
+            "label": "Human rights",
+            "items": [
+              "Magnitsky Prize, for work in human rights and anti-corruption — 2020",
+              "Human Rights Foundation's Václav Havel Prize for Creative Dissent — 2018",
+              "Freedom Award, presented by the Atlantic Council at its Wrocław Global Forum — 2011",
+              "Human Rights Prize of the French Republic — 2007",
+              "US State Department Meritorious Honour Award for Personal Bravery and Courage, to Natalia Kaliada — 2000 and 2001"
+            ]
+          }
+        ]
+      },
+      "politics": {
+        "q": "Where does BFT stand politically?",
+        "a": [
+          "BFT is one of the country's leading resistance movements against the dictatorship, operating entirely from exile as the only theatre in Europe banned by its government on political grounds. Its artistic leadership are political refugees from Belarus, based in the UK since 2011, and hold prominent roles in international human rights advocacy, including lobbying for sanctions against the Belarusian regime.",
+          "Founded in 2005, making, teaching and performing theatre in Minsk under Europe's last dictatorship, BFT was forced to operate underground. In 2011, after years of intimidation, arrests and imprisonment for making theatre, co-founding Artistic Directors Natalia Kaliada and Nicolai Khalezin, together with their daughter Daniella Kaliada, were forced to leave Belarus and were granted political asylum in the UK.",
+          "With its ensemble of actors still inside the country, BFT pioneered making theatre at a distance over Zoom, well before the pandemic moved the rest of the working world onto the same platform. In winter 2021 the company relocated its 16-strong acting ensemble and their family members out of Belarus to safety, in response to the severe risk of reprisals they faced as some of the most prominent opponents of the regime.",
+          "Since then BFT has operated internationally from London, creating ambitious stage productions that tour worldwide, alongside a theatre laboratory in Poland for children and adults displaced by the war in Ukraine and the dictatorship in Belarus."
+        ]
+      },
+      "exile": {
+        "q": "How can BFT make compelling art about Belarus from exile?",
+        "a": [
+          "Since 1994, artists in Belarus who engage critically with the dictatorship have been forced to work in exile, in secrecy, or under threat of imprisonment. BFT has known all of these conditions: years of intimidation, arrests and imprisonment for making theatre, the exile of its artistic directorship in 2011, and of its acting ensemble in 2021.",
+          "The mission has not changed in exile. For two decades the company has conceived and directed award-winning productions that articulate the harsh realities of everyday life in Belarus, shine a light on taboos at home, and call for accountability on the world stage.",
+          "Those productions still reach audiences back home. The opera King Stakh's Wild Hunt was streamed over the festive period in 2023 to more than 60,000 Belarusian households. BFT's YouTube series Grating with Khalezin has passed 10 million views across 132 episodes, helping Belarusian viewers understand the mechanisms of post-truth and propaganda, with fresh perspectives on peaceful activism and free expression. Guests have included Sir Stephen Fry, two-Michelin-starred chef Rasmus Munk, Sviatlana Tsikhanouskaya, and Boombox frontman Andriy Khlyvnyuk, best known for his collaboration with Pink Floyd at the outset of the full-scale invasion of Ukraine."
+        ]
+      },
+      "curators": {
+        "q": "Who are the curators of Official. Unofficial. Belarus.?",
+        "a": [
+          "The exhibition is curated by Daniella Kaliada with Natalia Kaliada MBE.",
+          "Daniella Alexandra Kaliada is a curator and cultural producer working across contemporary art and political context in Eastern Europe. She has chaired public discussions at DOX Centre for Contemporary Art in Prague, was a guest speaker at the Martin E. Segal Centre in New York, and curated a photography exhibition by Anna Goltsberg following the outbreak of the war in Ukraine. She has delivered keynote speeches and testimony to the UK Parliament, the Luxembourg Parliament and the Council of Europe, and has briefed the US State Department. As a translator and dramaturgical collaborator she has contributed to more than a dozen BFT productions, including the Olivier-nominated opera King Stakh's Wild Hunt and the international touring production Dogs of Europe.",
+          "Natalia Kaliada MBE is the co-founding Artistic Director of BFT, an award-winning theatre-maker, writer and director. At the helm of “one of the bravest and most inspired underground troupes on the planet” (The New York Times) for two decades, she works boldly across art forms, and her distinctive visual signature — powerful, expressionistic tableaux that linger long in the memory — has resonated on stages worldwide. She received an Olivier Award nomination for Outstanding Achievement in Opera in 2024 for King Stakh's Wild Hunt, BFT's first-ever foray into opera, and an MBE for Services to Theatre in the 2023 King's Birthday Honours. Persecuted for her work as an artist and diplomat, she was forced into exile in the UK in 2011 together with her daughter Daniella, then aged ten.",
+          "Natalia originated the global artistic campaign Free Belarus, which has drawn the support of leading contemporary artists and politicians, including BFT Life Patrons Sir Tom Stoppard, President Václav Havel and Harold Pinter. She has hosted masterclasses at Central Saint Martins, RADA, LAMDA and CCODS in the UK, ENSATT in Lyon, and Brown University, the Tisch School at NYU and Georgetown University in the USA. In 2020 she created the Women 4 Women Alliance, first launched together with Hillary Clinton, Madeleine Albright and Senator Jeanne Shaheen, which continues to keep the world's attention on the impact of war and dictatorship on the children of Ukraine and Belarus — including a panel discussion hosted by Cate Blanchett at the Barbican Theatre in autumn 2023. She is a committee member for the Magnitsky Human Rights Award; past winners include BFT, Senator John McCain and human rights barrister Geoffrey Robertson."
+        ]
+      },
+      "artists": {
+        "q": "How was this group of artists and collaborators convened?",
+        "a": [
+          "Official. Unofficial. Belarus. brings together a collective of leading contemporary artists for a world-first collaboration. Many are Belarusian artists who — like BFT — have been persecuted by the regime and forced into exile, from where they fearlessly drive forward a vibrant Belarusian independent culture that exists in parallel to the state.",
+          "They stand alongside the Ukrainian olfactory innovators ol.factory; Denmark's extraordinary culinary provocateur, Chef Rasmus Munk; and long-standing friends and supporters of BFT — Gillian Anderson, Sir Stephen Fry, Jude Law (BFT Trustee), Dame Joanna Lumley and Ruth Wilson — who have given their voices to the testimonials of recently released Belarusian political prisoners in the sound installation Voice Overs.",
+          "Together they form an artistic constellation that is impossible to ignore, one no state institution could ever assemble, signalling that Belarusian independent culture — not the regime — holds cultural authority, and deserves its rightful place on the world stage."
+        ]
+      },
+      "munk": {
+        "q": "How did Chef Rasmus Munk become part of the project?",
+        "a": [
+          "Natalia Kaliada first met Rasmus Munk in 2024, following a surprise dinner organised by her husband and daughter at Munk's restaurant, Alchemist, in Copenhagen. She describes meeting him as “like meeting a soul mate who is like BFT, but in the world of culinary arts”.",
+          "BFT has worked with food as a tool for provocation for more than 20 years — memorably in the stage production Trash Cuisine — and wanted to bring food to the Venice Biennale and celebrate it as art. That is where the idea originated: to invite Rasmus into the development of a sensory deprivation journey, and the creation of “a texture that dissolves leaving hope as an aftertaste”."
+        ]
+      },
+      "origin": {
+        "q": "Where were the artworks created? Did they come out of Belarus?",
+        "a": [
+          "No artworks came out of Belarus. The majority were created in Warsaw, where BFT has had its European base since its complete exile from Belarus in 2021.",
+          "Elsewhere: Taste of Nothing was developed by Chef Rasmus Munk together with Daniella Kaliada and Natalia Kaliada at Munk's restaurant Alchemist in Copenhagen; The Smell of Dictatorship candles were created in Kyiv with the Ukrainian studio ol.factory; and the concept for Confessional of the System was originated by Natalia Kaliada with Daniella Kaliada, with the code built at MIT in Cambridge, Massachusetts, supported by a grant from MIT's Social and Ethical Responsibilities in Computing."
+        ]
+      },
+      "confessional": {
+        "q": "How does Confessional of the System work?",
+        "a": [
+          "CCTV cameras on the exterior of the confessional track people moving near it. Inside the kiosk, three large screens play that live footage back. As you sit and watch, a hidden camera looks for a human face; when it finds someone looking at the screens, it captures a burst of frames.",
+          "The portrait is dispatched to a battery of public reverse-image and facial-recognition services, each asked the same question: who is this person, and where else does this face appear? The results return in fragments — matches, profiles, probability scores — and the engine assembles them into a dossier. Your live camera image is shown overlaid with face-tracking statistics and the dossier information. Some of what appears is real, some is fabricated to fit the form. You cannot tell which is which, and that is the point.",
+          "The dossier is held on screen long enough to be read, long enough to be uncomfortable. After 40 seconds it fades and is replaced by a line of text: “You were watching. Now you are the one being watched.” Then every frame, every file, every trace of the session is destroyed. The installation retains nothing. The kiosk returns to its quiet grid, watching the room again.",
+          "Technically, the work uses open-source face detection (OpenCV) to find faces in frame — it cannot identify people or track them biometrically. The captured photograph is run as a reverse image search against publicly available image databases and a database of open-source celebrity images. Many of the categories and results are simulated, to give the impression of a surveillance tool without ever collecting data at that level. Once the experience ends, all data is purged completely: no photographs and no records are kept. Nothing is stored, and the installation complies with EU GDPR requirements."
+        ]
+      },
+      "testimonies": {
+        "q": "Whose testimonies are heard in the exhibition, and how were they gathered?",
+        "a": [
+          "Since 2021 BFT has been based between London and Poland. In Warsaw it is a co-founder of the Belarusian Centre for Solidarity, which works with refugees from Ukraine and recently released political prisoners from Belarus. The testimonials were given on a voluntary basis by individuals working with BFT at the Centre.",
+          "They are presented anonymously, for fear of reprisals against loved ones and relatives back in Belarus — many of whom are still in prison. The authors asked British actors to read their testimonials. Gillian Anderson, Sir Stephen Fry and Ruth Wilson came together as narrators to frame these stories within an audio collection where “home” emerges not as a fixed place, but as a structure formed through memory, language and repetition."
+        ]
+      },
+      "restoration": {
+        "q": "Why is BFT funding the care of the church's antique paintings?",
+        "a": [
+          "As a collective of exiled artists, Belarus Free Theatre is committed to the importance of preserving cultural heritage. Unlike many exhibitors, its commitment extends beyond presentation: alongside exhibiting its own work, the company is helping to safeguard historic artefacts and sustain Venetian heritage for generations to come.",
+          "During the exhibition period, BFT is financing the cleaning of the four antique paintings usually housed in the Chiesa di San Giovanni Evangelista:"
+        ],
+        "lists": [
+          {
+            "items": [
+              "Madonna del Carmelo che consegna lo scapolare a San Simon Stock, by a student of Padovanino, 17th century",
+              "Martirio di San Sebastiano, 1540–1605",
+              "Martirio di Santa Barbara, by Pietro Ricchi, 1606–1675",
+              "San Giacomo Apostolo, by Antonio Vassilacchi, known as Aliense, 1556–1629"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "visit": {
     "eyebrow": "VISIT",
     "title": "FIND THE DOOR.",
@@ -121,7 +249,10 @@
     "admission": "Free entry",
     "location": "Chiesa di San Giovanni Evangelista (Church of San Giovanni Evangelista)",
     "address": "S. Polo 2454, 30125 Venice VE, Italy",
-    "cta": "Open in Google Maps",
+    "maps": {
+      "google": "Open in Google Maps",
+      "apple": "Open in Apple Maps"
+    },
     "ticketsNote": "Full visiting information is published by La Biennale di Venezia:"
   },
   "footer": {

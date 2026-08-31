@@ -1,5 +1,5 @@
 /**
- * Source of truth for the six participants of Official. Unofficial. Belarus.
+ * Source of truth for the eight participants of Official. Unofficial. Belarus.
  * Photo files come from public/images/participants/<slug>.webp, generated
  * by scripts/optimize-images.mjs.
  *
@@ -25,6 +25,12 @@ export const PARTICIPANTS: readonly Participant[] = [
     photo: photo('daniella-kaliada'),
   },
   {
+    slug: 'natalia-kaliada',
+    name: 'Natalia Kaliada MBE',
+    meta: 'b. 1973, Minsk',
+    photo: photo('natalia-kaliada'),
+  },
+  {
     slug: 'nicolai-khalezin',
     name: 'Nicolai Khalezin MBE',
     meta: 'b. 1964, Minsk',
@@ -43,15 +49,22 @@ export const PARTICIPANTS: readonly Participant[] = [
     photo: photo('vladimir-tsesler'),
   },
   {
-    slug: 'volha-podgaiskaya',
-    name: 'Volha Podgaiskaya',
+    slug: 'olga-podgayskaya',
+    name: 'Olga Podgayskaya',
     meta: 'b. 1979, Minsk',
-    photo: photo('volha-podgaiskaya'),
+    photo: photo('olga-podgayskaya'),
   },
   {
     slug: 'rasmus-munk',
     name: 'Rasmus Munk',
     meta: 'b. 1991, Randers',
     photo: photo('rasmus-munk'),
+  },
+  // A studio, not a person: `meta` carries the base instead of a birth line.
+  {
+    slug: 'ol-factory',
+    name: 'ol.factory',
+    meta: 'Scent studio, Kyiv',
+    photo: photo('ol-factory'),
   },
 ] as const;

@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { id: SECTION_IDS.participants, key: 'nav.participants' },
   { id: SECTION_IDS.works, key: 'nav.works' },
   { id: SECTION_IDS.press, key: 'nav.press' },
+  { id: SECTION_IDS.faq, key: 'nav.faq' },
   { id: SECTION_IDS.visit, key: 'nav.visit' },
 ] as const;
 
@@ -68,7 +69,7 @@ export function Header() {
 
         <nav
           aria-label={t('nav.primary')}
-          className="hidden md:flex items-center gap-7 font-mono text-[11px] uppercase tracking-[0.2em]"
+          className="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-[11px] uppercase tracking-[0.2em]"
         >
           {NAV_ITEMS.map((item) => (
             <a

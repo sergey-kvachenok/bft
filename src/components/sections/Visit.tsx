@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { Section } from '../ui/Section';
 import { CtaButton } from '../ui/CtaButton';
-import { EXTERNAL_LINKS, SECTION_IDS } from '../../lib/constants';
+import { EXTERNAL_LINKS, SECTION_IDS, VENUE_MAP_LINKS } from '../../lib/constants';
 import { LINK_BORDERED, MONO_LABEL } from '../../lib/ui';
 import { fadeUp, whileInViewProps } from '../../lib/motion';
 
@@ -43,10 +43,20 @@ export function Visit() {
             </div>
           ))}
         </dl>
-        <CtaButton href={EXTERNAL_LINKS.venueMap} external className="gap-2">
-          {t('visit.cta')}
-          <span aria-hidden>→</span>
-        </CtaButton>
+        <div className="flex flex-wrap gap-3">
+          {VENUE_MAP_LINKS.map(({ key, href }, i) => (
+            <CtaButton
+              key={key}
+              href={href}
+              external
+              variant={i === 0 ? 'filled' : 'outlined'}
+              className="gap-2"
+            >
+              {t(`visit.maps.${key}`)}
+              <span aria-hidden>→</span>
+            </CtaButton>
+          ))}
+        </div>
         <p className="mt-8 text-sm sm:text-base text-[var(--color-paper)]">
           {t('visit.ticketsNote')}{' '}
           <a
