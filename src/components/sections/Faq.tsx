@@ -45,7 +45,9 @@ export function Faq() {
               variants={fadeUp}
               className="border-b border-[var(--color-rule)]"
             >
-              <details className="group">
+              {/* Shared `name` makes the rows an exclusive accordion — opening
+                  one closes the rest, with no state to hydrate. */}
+              <details name={SECTION_IDS.faq} className="group">
                 <summary
                   className={`
                     ${SUMMARY_MARKER_HIDDEN}
