@@ -133,6 +133,7 @@ This is a phone-first app. Every change should be tested at narrow viewport (~37
 
 - **Bandwidth matters.** There is no offline cache to fall back on — every visitor pays for what you add, often on Venice mobile data. Justify new media, and run it through `npm run optimize-images`.
 - **No photo credits anywhere.** The credit overlay on `DossierCard` and its data (per-participant credits, the shared `PHOTO_CREDIT` in `Works`) were removed on the owner's instruction. Don't reintroduce them; `photo` is `{ src, alt }`. The footer copyright line (`footer.credit`) is unrelated and stays.
+- **Nicolai Khalezin is not credited as a curator** — role line or bio, in any locale. Removed on the owner's instruction; the curator credit belongs to Daniella Kaliada, with Natalia Kaliada as co-curator.
 - **Lazy-load images** that are off-screen. The grid uses `loading="lazy"`.
 - **Don't stack 55 `<img>` elements** with opacity tricks — see point 5.
 - **Touch first, hover second.** Hover styles are a bonus, not a requirement to discover functionality.

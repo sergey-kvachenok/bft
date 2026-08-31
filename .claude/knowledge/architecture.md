@@ -23,7 +23,7 @@ src/
     CamFeedSlider.tsx           — auto-cycling hero feed (8 photos)
     CamPopup.tsx                — full-screen viewer: buttons, keyboard, swipe
     sections/
-      Hero.tsx, About.tsx, Participants.tsx, Works.tsx, Press.tsx, Visit.tsx
+      Hero.tsx, About.tsx, Participants.tsx, Works.tsx, Press.tsx, Faq.tsx, Visit.tsx
     ui/
       CamFrame.tsx              — chrome around any "monitor view" (cam id, timestamp, REC)
       DossierCard.tsx           — photo-tile + title card, shared by Participants and Works
@@ -31,7 +31,7 @@ src/
       Section.tsx, SectionHeader.tsx, CtaButton.tsx, SignalBars.tsx, InstagramIcon.tsx
   lib/
     artworks.ts                 — single source of truth for the CCTV photos
-    participants.ts             — the six participants (bios live in i18n)
+    participants.ts             — the eight participants (bios live in i18n)
     worksList.ts                — the eighteen catalogued works
     pressList.ts                — press coverage (summaries live in i18n)
     site.ts                     — SITE.url + EXHIBITION facts. The ONLY place the origin is written
@@ -72,9 +72,10 @@ scripts/
     <CamGrid>                   — 2 rows of 100px tiles using GRID_ARTWORKS
       <CamPopup>                — overlay, mounted alongside grid; opens at active index
     <About>
-    <Participants>              — seven DossierCards; bios from i18n
+    <Participants>              — eight DossierCards; bios from i18n
     <Works>                     — eighteen DossierCards + its own CamPopup
     <Press>                     — six press items; summaries from i18n
+    <Faq>                       — ten details/summary rows; all copy from i18n
     <Visit>
   <Footer>                      — site links, press release, Instagram keys
 ```
@@ -207,14 +208,15 @@ Three locales: `en` (English), `be` (Belarusian), `it` (Italian). Chosen by URL 
 Key structure (top-level groups):
 
 ```
-meta, nav, surveillance, hero, about, feeds, participants, works, press, visit, footer, a11y, camGrid
+meta, nav, surveillance, hero, about, feeds, participants, works, press, faq, visit, footer, a11y, camGrid
 ```
 
 - `feeds.artwork` — alt text shared by all 55 photos (one generic description, not per-photo).
 - `a11y.{closeCam, prevCam, nextCam, skipToContent, openMenu, closeMenu, switchLanguage}` — interactive control labels.
 - `camGrid.{aria, last, resume}` — grid wall labels including the "last viewed" tile badge and resume hint.
 - `meta.{title, description}` — the indexable `<title>` and description. Prerendered per locale *and* re-applied by `useDocumentMeta` after an in-place switch.
-- `participants.bios.<slug>`, `press.items.<slug>.summary`, `press.kinds.<kind>` — keyed by the slug in `lib/participants.ts` / `lib/pressList.ts`. Keep the slug lists in sync.
+- `participants.bios.<slug>`, `press.items.<slug>.summary`, `press.kinds.<kind>`, `faq.items.<slug>` — keyed by the slug in `lib/participants.ts` / `lib/pressList.ts` / `lib/faqList.ts`. Keep the slug lists in sync.
+- `faq.items.<slug>.a` is an **array** of paragraphs and `.lists` an optional array of `{label?, items[]}` — read with `t(key, { returnObjects: true })`, and pass `defaultValue: []` for the optional one or a missing key comes back as the key string.
 
 Adding a string means adding it to all three locale files in the same place.
 
@@ -226,15 +228,28 @@ The top band reads "CAM 01–55 · 055" derived from the total artwork count via
 
 ## The other data lists
 
-`artworks.ts` covers the CCTV photos. Three more lists follow the same shape — a `readonly` array of records whose `slug` doubles as the i18n key and the image basename:
+`artworks.ts` covers the CCTV photos. Four more lists follow the same shape — a `readonly` array of records whose `slug` doubles as the i18n key and the image basename:
 
 | File | Drives | Prose in i18n | Photos |
 | --- | --- | --- | --- |
-| `participants.ts` | Participants (6) | `participants.bios.<slug>.{role,body}` | `/images/participants/<slug>.webp` |
+| `participants.ts` | Participants (8) | `participants.bios.<slug>.{role,body}` | `/images/participants/<slug>.webp` |
 | `worksList.ts` | Works (18) | — titles/medium live in the file | `/images/works/<slug>.webp` |
 | `pressList.ts` | Press (6) | `press.items.<slug>.summary` | — |
+| `faqList.ts` | Q&A (10) | `faq.items.<slug>.{q,a,lists}` | — |
 
 `pressList.ts` has an optional `date`: ARTnews and Artnet publish none, so none is rendered. **Don't invent one.**
+
+`participants.ts` holds people *and* one studio. `meta` is free text, not a
+schema: people read `b. 1973, Minsk`, the Kyiv scent studio `ol.factory` reads
+`Scent studio, Kyiv` because no founding year was supplied. Its tile is not a
+photograph — the studio's black-on-white logo was turned into an alpha mask and
+painted `--color-paper` over a `--color-ink-2` plate at 1200×1500, so it sits in
+the dossier grid without a white block. Replace it wholesale if a real studio
+photo ever arrives.
+
+`faqList.ts` is only the slug order — every question, paragraph and bullet lives
+in i18n. `Faq.tsx` renders native `<details>`; all rows share `name="faq"`, which
+is what makes the accordion exclusive (no state, nothing to hydrate).
 
 ## Styling notes (`styles.css`)
 

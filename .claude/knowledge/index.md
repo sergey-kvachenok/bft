@@ -15,7 +15,7 @@ This map exists so any future agent can get oriented in minutes. Read `architect
 | --------------------------------------------------------- | --------------------------------------------- |
 | Adding/removing photos, changing the gallery, asset paths | `architecture.md` → Data + `assets` section   |
 | Tweaking the CCTV slider, grid, or popup                  | `architecture.md` → Components                |
-| Participants, Works, or Press content                     | `architecture.md` → The other data lists      |
+| Participants, Works, Press, or Q&A content                | `architecture.md` → The other data lists      |
 | New translation, locale fix, alt-text                     | `architecture.md` → i18n                      |
 | Anything that must survive prerender/hydration            | `architecture.md` → Prerendering and hydration|
 | URLs, language switching, `hreflang`                      | `architecture.md` → Locales and routing       |
@@ -29,12 +29,12 @@ This map exists so any future agent can get oriented in minutes. Read `architect
 
 ## Entry points (read these files first)
 
-- `src/App.tsx` — section composition (`SurveillanceBand`, `Header`, `Hero`, `CamGrid`, `About`, `Participants`, `Works`, `Press`, `Visit`, `Footer`).
+- `src/App.tsx` — section composition (`SurveillanceBand`, `Header`, `Hero`, `CamGrid`, `About`, `Participants`, `Works`, `Press`, `Faq`, `Visit`, `Footer`).
 - `src/lib/artworks.ts` — **single source of truth** for all CCTV photo data. Drives the hero slider and the grid.
-- `src/lib/{participants,worksList,pressList}.ts` — the Participants, Works, and Press content.
+- `src/lib/{participants,worksList,pressList,faqList}.ts` — the Participants, Works, Press, and Q&A content.
 - `src/lib/site.ts` — **the only place the deployed origin is written.** Flows into canonical, `og:*`, JSON-LD, `robots.txt`, `sitemap.xml`.
 - `src/lib/locale.ts` — locale ↔ URL-path mapping. The URL decides the language.
-- `src/lib/constants.ts` — section IDs, external + social links, assets, localStorage keys.
+- `src/lib/constants.ts` — section IDs, external + social links, `VENUE_MAP_LINKS` (Google + Apple, `key` doubles as the `visit.maps.*` i18n key), assets, localStorage keys.
 - `src/i18n/locales/{en,be,it}.json` — every user-facing string. No literal strings in components.
 - `vite.config.ts` — the `seo()` plugin (`%SITE_URL%` substitution, `robots.txt`, `sitemap.xml`) and client-only `manualChunks`.
 - `scripts/prerender.mjs` — writes the three per-locale HTML files. Runs last in `npm run build`.
@@ -73,9 +73,9 @@ npm run qr               # regenerate the QR landing image
 ## Last-known image footprint
 
 - Source artworks: 55 photos at `public/images/artworks/<id>.webp` (1600w) + `<id>-thumb.webp` (400w).
-- Plus `participants/` (6, 1200w) and `works/` (18, 1000w).
+- Plus `participants/` (8, 1200w) and `works/` (18, 1000w).
 - Pre-optimization JPGs were 406MB total; current WebP set is ~13MB.
-- Prerendered HTML is ~130–136KB per locale — the body markup is inlined, which is the point.
+- Prerendered HTML is ~167–181KB per locale — the body markup is inlined, which is the point. The Q&A section is the largest single contributor.
 
 ## Outstanding
 
