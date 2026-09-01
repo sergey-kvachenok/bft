@@ -26,9 +26,7 @@
   "about": {
     "eyebrow": "ABOUT",
     "title": "BANNED AT HOME.\nSTAGED IN VENICE.",
-    "body": "Belarus Free Theatre is the only theatre in Europe banned by its own government on political grounds. From exile, they bring Official. Unofficial. Belarus. to La Biennale di Venezia — a work made under surveillance, about surveillance.",
-    "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia"
+    "body": "Belarus Free Theatre is the only theatre in Europe banned by its own government on political grounds. From exile, they bring Official. Unofficial. Belarus. to La Biennale di Venezia — a work made under surveillance, about surveillance."
   },
   "feeds": {
     "artwork": "Photograph from the Official. Unofficial. Belarus. exhibition by Belarus Free Theatre at La Biennale di Venezia"
@@ -260,8 +258,7 @@
     "credit": "Belarus Free Theatre",
     "downloadPressRelease": "Download press release",
     "downloadPressReleaseAria": "Download press release (DOCX, 172 KB)",
-    "follow": "FOLLOW",
-    "instagramAria": "Instagram: @{{handle}}"
+    "follow": "FOLLOW"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -275,7 +272,8 @@
     "playFeed": "Play camera feed",
     "enlargePhoto": "Enlarge photo: {{name}}",
     "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "themeDark": "Switch to dark theme",
+    "instagramAria": "Instagram: @{{handle}}"
   },
   "camGrid": {
     "aria": "Multi-view camera wall",

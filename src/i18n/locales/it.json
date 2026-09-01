@@ -26,9 +26,7 @@
   "about": {
     "eyebrow": "INFO",
     "title": "BANDITO IN PATRIA.\nIN SCENA A VENEZIA.",
-    "body": "Belarus Free Theatre è l'unico teatro in Europa bandito dal proprio governo per ragioni politiche. Dall'esilio, porta Official. Unofficial. Belarus. alla Biennale di Venezia — un'opera fatta sotto sorveglianza, sulla sorveglianza.",
-    "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "La Biennale di Venezia"
+    "body": "Belarus Free Theatre è l'unico teatro in Europa bandito dal proprio governo per ragioni politiche. Dall'esilio, porta Official. Unofficial. Belarus. alla Biennale di Venezia — un'opera fatta sotto sorveglianza, sulla sorveglianza."
   },
   "feeds": {
     "artwork": "Fotografia della mostra Official. Unofficial. Belarus. di Belarus Free Theatre alla Biennale di Venezia"
@@ -260,8 +258,7 @@
     "credit": "Belarus Free Theatre",
     "downloadPressRelease": "Scarica il comunicato stampa",
     "downloadPressReleaseAria": "Scarica il comunicato stampa (DOCX, 172 KB)",
-    "follow": "SEGUICI",
-    "instagramAria": "Instagram: @{{handle}}"
+    "follow": "SEGUICI"
   },
   "a11y": {
     "skipToContent": "Vai al contenuto",
@@ -275,7 +272,8 @@
     "playFeed": "Riproduci il feed",
     "enlargePhoto": "Ingrandisci foto: {{name}}",
     "themeLight": "Passa al tema chiaro",
-    "themeDark": "Passa al tema scuro"
+    "themeDark": "Passa al tema scuro",
+    "instagramAria": "Instagram: @{{handle}}"
   },
   "camGrid": {
     "aria": "Parete multi-vista delle telecamere",

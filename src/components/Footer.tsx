@@ -3,6 +3,7 @@ import { ASSETS, EXTERNAL_LINKS, SOCIAL_LINKS } from '../lib/constants';
 import { LINK_INLINE } from '../lib/ui';
 import { CtaButton } from './ui/CtaButton';
 import { InstagramIcon } from './ui/InstagramIcon';
+import { InstagramHandle } from './ui/InstagramHandle';
 
 const LINKS = [
   { href: EXTERNAL_LINKS.bft, label: 'belarusfreetheatre.com' },
@@ -11,24 +12,6 @@ const LINKS = [
 
 const ARROW = ' →';
 
-/**
- * A handle has no spaces, so a narrow phone would either overflow the box or
- * break it mid-word. Marking the dots as break opportunities keeps each
- * segment whole.
- */
-const breakableHandle = (handle: string) => {
-  const parts = handle.split('.');
-  return parts.map((part, i) => (
-    <span key={part}>
-      {i === 0 ? `@${part}` : part}
-      {i < parts.length - 1 && (
-        <>
-          .<wbr />
-        </>
-      )}
-    </span>
-  ));
-};
 
 export function Footer() {
   const { t } = useTranslation();
@@ -80,11 +63,11 @@ export function Footer() {
                   href={social.href}
                   variant="outlined"
                   external
-                  ariaLabel={t('footer.instagramAria', { handle: social.handle })}
+                  ariaLabel={t('a11y.instagramAria', { handle: social.handle })}
                   className="w-full sm:w-auto"
                 >
                   <InstagramIcon className="w-4 h-4 shrink-0" />
-                  <span>{breakableHandle(social.handle)}</span>
+                  <InstagramHandle handle={social.handle} />
                 </CtaButton>
               </li>
             ))}

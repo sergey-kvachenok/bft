@@ -12,7 +12,7 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 
 export const EXTERNAL_LINKS = {
   bft: 'https://belarusfreetheatre.com',
-  biennale: 'https://www.labiennale.org',
+  biennale: 'https://www.labiennale.org/en/art/2026/official-unofficial-belarus',
 } as const;
 
 /** Venue map providers; `key` is also the i18n key under `visit.maps.*`. */
@@ -23,10 +23,14 @@ export const VENUE_MAP_LINKS = [
 
 const INSTAGRAM = 'https://www.instagram.com';
 
-export const SOCIAL_LINKS = [
-  { handle: 'official.unofficial.belarus' },
-  { handle: 'belarusfreetheatre' },
-].map(({ handle }) => ({ handle, href: `${INSTAGRAM}/${handle}` }));
+const instagram = (handle: string) => ({ handle, href: `${INSTAGRAM}/${handle}` });
+
+export const INSTAGRAM_LINKS = {
+  exhibition: instagram('official.unofficial.belarus'),
+  bft: instagram('belarusfreetheatre'),
+} as const;
+
+export const SOCIAL_LINKS = Object.values(INSTAGRAM_LINKS);
 
 export const ASSETS = {
   pressRelease: '/press-release.docx',

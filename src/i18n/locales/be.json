@@ -26,9 +26,7 @@
   "about": {
     "eyebrow": "ПРА",
     "title": "ЗАБАРОНЕНЫ ДОМА.\nНА СЦЭНЕ Ў ВЕНЕЦЫІ.",
-    "body": "Belarus Free Theatre — адзіны тэатр у Еўропе, забаронены ўласным урадам па палітычных матывах. З выгнання яны прывозяць Official. Unofficial. Belarus. на Венецыянскую біенале — праца, зробленая пад наглядам, пра нагляд.",
-    "linkBft": "Belarus Free Theatre",
-    "linkBiennale": "Венецыянская біенале"
+    "body": "Belarus Free Theatre — адзіны тэатр у Еўропе, забаронены ўласным урадам па палітычных матывах. З выгнання яны прывозяць Official. Unofficial. Belarus. на Венецыянскую біенале — праца, зробленая пад наглядам, пра нагляд."
   },
   "feeds": {
     "artwork": "Фотаздымак з выставы «Афіцыйна. Неафіцыйна. Беларусь.» Беларускага Свабоднага тэатра на Венецыянскай біенале"
@@ -260,8 +258,7 @@
     "credit": "Belarus Free Theatre",
     "downloadPressRelease": "Спампаваць прэс-рэліз",
     "downloadPressReleaseAria": "Спампаваць прэс-рэліз (DOCX, 172 КБ)",
-    "follow": "ПАДПІСВАЙЦЕСЯ",
-    "instagramAria": "Instagram: @{{handle}}"
+    "follow": "ПАДПІСВАЙЦЕСЯ"
   },
   "a11y": {
     "skipToContent": "Перайсці да зместу",
@@ -275,7 +272,8 @@
     "playFeed": "Уключыць трансляцыю",
     "enlargePhoto": "Павялічыць фота: {{name}}",
     "themeLight": "Пераключыць на светлую тэму",
-    "themeDark": "Пераключыць на цёмную тэму"
+    "themeDark": "Пераключыць на цёмную тэму",
+    "instagramAria": "Instagram: @{{handle}}"
   },
   "camGrid": {
     "aria": "Сцяна камер мультывідэа",
