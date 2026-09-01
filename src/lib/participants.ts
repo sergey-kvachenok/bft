@@ -27,7 +27,7 @@ export const PARTICIPANTS: readonly Participant[] = [
   {
     slug: 'natalia-kaliada',
     name: 'Natalia Kaliada MBE',
-    meta: 'b. 1973, Minsk',
+    meta: 'Minsk',
     photo: photo('natalia-kaliada'),
   },
   {
